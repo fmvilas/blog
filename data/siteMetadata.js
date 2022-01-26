@@ -17,7 +17,7 @@ const siteMetadata = {
   linkedin: 'https://www.linkedin.com/in/fmvilas',
   locale: 'en-US',
   analytics: {
-    googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+    googleAnalyticsId: 'G-BXMJWVVSG3', // e.g. UA-000000-2 or G-XXXXXXX
   },
   newsletter: {
   },
