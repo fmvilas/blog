@@ -15,6 +15,7 @@ const siteMetadata = {
   twitter: 'https://twitter.com/fmvilas',
   youtube: 'https://youtube.com/fmvilas',
   linkedin: 'https://www.linkedin.com/in/fmvilas',
+  mastodon: 'https://asyncapi.social/@fmvilas',
   locale: 'en-US',
   analytics: {
     googleAnalyticsId: 'G-BXMJWVVSG3', // e.g. UA-000000-2 or G-XXXXXXX
