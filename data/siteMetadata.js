@@ -1,11 +1,11 @@
 const siteMetadata = {
-  title: 'Fran Mendez\'s blog',
+  title: 'Fran Mendez',
   author: 'Fran Mendez',
-  headerTitle: 'Fran Mendez\'s blog',
-  description: 'This is the blog of Fran Mendez.',
+  headerTitle: 'Fran Mendez',
+  description: 'This is the personal website of Fran Mendez.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://www.franmendez.blog',
+  siteUrl: 'https://www.fmvilas.me',
   siteRepo: 'https://github.com/fmvilas/blog',
   siteLogo: '',
   image: '/static/images/avatar.jpg',
@@ -15,7 +15,7 @@ const siteMetadata = {
   twitter: 'https://twitter.com/fmvilas',
   youtube: 'https://youtube.com/fmvilas',
   linkedin: 'https://www.linkedin.com/in/fmvilas',
-  mastodon: 'https://asyncapi.social/@fmvilas',
+  mastodon: 'https://social.fmvilas.me/@fran',
   locale: 'en-US',
   analytics: {
     googleAnalyticsId: 'G-BXMJWVVSG3', // e.g. UA-000000-2 or G-XXXXXXX
