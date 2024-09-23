@@ -1,8 +1,8 @@
 ---
 name: Fran Mendez
-avatar: /static/images/avatar.jpg
-occupation: Director of Engineering
-company: Postman
+avatar: /static/images/avatar.png
+occupation: Maker
+company: Fran Mendez
 email: fmvilas@gmail.com
 twitter: https://twitter.com/fmvilas
 linkedin: https://www.linkedin.com/in/fmvilas

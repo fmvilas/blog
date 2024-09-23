@@ -8,7 +8,7 @@ const siteMetadata = {
   siteUrl: 'https://www.fmvilas.me',
   siteRepo: 'https://github.com/fmvilas/blog',
   siteLogo: '',
-  image: '/static/images/avatar.jpg',
+  image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'fmvilas@gmail.com',
   github: 'https://github.com/fmvilas',
@@ -21,7 +21,7 @@ const siteMetadata = {
     googleAnalyticsId: 'G-BXMJWVVSG3', // e.g. UA-000000-2 or G-XXXXXXX
   },
   newsletter: {
-    provider: ''
+    provider: '',
   },
   comment: {
     // Select a provider and use the environment variables associated to it
