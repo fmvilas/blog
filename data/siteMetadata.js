@@ -1,15 +1,16 @@
 const siteMetadata = {
-  title: 'Fran Mendez',
+  title: "Fran Mendez's Mailing List",
   author: 'Fran Mendez',
   headerTitle: 'Fran Mendez',
-  description: 'This is the personal website of Fran Mendez.',
+  description:
+    'Get an opinion article every Sunday about engineering, design, and life. I\'m Fran Méndez, creator of AsyncAPI, the industry standard for describing asynchronous APIs. Put your email below and I\'ll make sure you always learn something new every week.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.fmvilas.me',
   siteRepo: 'https://github.com/fmvilas/blog',
   siteLogo: '',
-  image: '/static/images/avatar.png',
-  socialBanner: '/static/images/twitter-card.png',
+  image: '/static/images/opengraph.png',
+  socialBanner: '/static/images/opengraph.png',
   email: 'fmvilas@gmail.com',
   github: 'https://github.com/fmvilas',
   bluesky: 'https://bsky.app/profile/fmvilas.me',
