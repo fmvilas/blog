@@ -3,9 +3,8 @@ import Github from './github.svg'
 import Facebook from './facebook.svg'
 import Youtube from './youtube.svg'
 import Linkedin from './linkedin.svg'
-import Twitter from './twitter.svg'
 import Mastodon from './mastodon.svg'
-
+import Bluesky from './bluesky.svg'
 // Icons taken from: https://simpleicons.org/
 
 const components = {
@@ -14,11 +13,11 @@ const components = {
   facebook: Facebook,
   youtube: Youtube,
   linkedin: Linkedin,
-  twitter: Twitter,
+  bluesky: Bluesky,
   mastodon: Mastodon,
 }
 
-const SocialIcon = ({ kind, href, size = 8 }) => {
+const SocialIcon = ({ kind, href }) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 
@@ -33,7 +32,7 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
     >
       <span className="sr-only">{kind}</span>
       <SocialSvg
-        className={`fill-current text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 h-${size} w-${size}`}
+        className="fill-current text-purple-200 hover:text-yellow-400 w-6 h-6"
       />
     </a>
   )

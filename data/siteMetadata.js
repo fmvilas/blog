@@ -12,7 +12,7 @@ const siteMetadata = {
   socialBanner: '/static/images/twitter-card.png',
   email: 'fmvilas@gmail.com',
   github: 'https://github.com/fmvilas',
-  twitter: 'https://twitter.com/fmvilas',
+  bluesky: 'https://bsky.app/profile/fmvilas.me',
   youtube: 'https://youtube.com/fmvilas',
   linkedin: 'https://www.linkedin.com/in/fmvilas',
   mastodon: 'https://social.fmvilas.me/@fran',
