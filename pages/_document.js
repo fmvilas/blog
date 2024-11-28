@@ -1,7 +1,8 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 const URL = 'https://www.fmvilas.me'
-const TITLE = 'Fran Méndez\'s Mailing List'
-const DESCRIPTION = 'Get an opinion article every Sunday about engineering, design, and life. I\'m Fran Méndez, creator of AsyncAPI, the industry standard for describing asynchronous APIs. Put your email below and I\'ll make sure you always learn something new every week.'
+const TITLE = "Fran Méndez's Mailing List"
+const DESCRIPTION =
+  "Get an opinion article every Sunday about engineering, design, and life. I'm Fran Méndez, creator of AsyncAPI, the industry standard for describing asynchronous APIs. Put your email below and I'll make sure you always learn something new every week."
 const IMAGE = '/static/images/opengraph.png'
 
 class MyDocument extends Document {
@@ -17,12 +18,15 @@ class MyDocument extends Document {
 
           {/* <!-- For Google --> */}
           <meta name="description" content={DESCRIPTION} />
-          <meta name="keywords" content="newsletter, opinion, engineering, design, life, asyncapi, api, kafka, mqtt, amqp, rabbitmq, pubsub, messaging, event-driven, eventcatalog" />
+          <meta
+            name="keywords"
+            content="newsletter, opinion, engineering, design, life, asyncapi, api, kafka, mqtt, amqp, rabbitmq, pubsub, messaging, event-driven, eventcatalog"
+          />
           <meta name="author" content="Fran Méndez" />
           <meta name="copyright" content="Fran Méndez" />
           <meta name="application-name" content={TITLE} />
 
-          {/* <!-- For Facebook --> */} 
+          {/* <!-- For Facebook --> */}
           <meta property="og:title" content={TITLE} />
           <meta property="og:type" content="article" />
           <meta property="og:image" content={IMAGE} />
