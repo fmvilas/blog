@@ -11,7 +11,7 @@ const siteMetadata = {
   siteLogo: '',
   image: '/static/images/opengraph.png',
   socialBanner: '/static/images/opengraph.png',
-  email: 'fmvilas@gmail.com',
+  email: 'fran@fmvilas.me',
   github: 'https://github.com/fmvilas',
   bluesky: 'https://bsky.app/profile/fmvilas.me',
   youtube: 'https://youtube.com/fmvilas',
