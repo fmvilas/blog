@@ -82,6 +82,25 @@ export default function Home() {
                 </article>
               </a>
             </li>
+            <li>
+              <a href="https://mailchi.mp/fmvilas.me/schema-first-asyncapi-is-just-a-config-file">
+                <article className="shadow-lg bg-cyan-600 bg-gradient-custom bg-blend-overlay rounded-2xl flex-1">
+                  <div className="relative aspect-video sm:aspect-[4/2] lg:w-full lg:shrink-0">
+                    <img
+                      alt=""
+                      src="/static/images/schema-first-asyncapi-is-just-a-config-file.png"
+                      className="absolute inset-0 size-full rounded-2xl bg-gray-50 object-cover"
+                    />
+                    <time
+                      dateTime="2022-02-04"
+                      className="text-black/90 text-shadow-lg shadow-white font-bold absolute bottom-4 left-6"
+                    >
+                      December 1st, 2024
+                    </time>
+                  </div>
+                </article>
+              </a>
+            </li>
           </ul>
         </div>
       </SectionContainer>
