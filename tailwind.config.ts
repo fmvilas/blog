@@ -64,11 +64,13 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				book: {
-					navy: '#0f172a',
-					teal: '#0d9488',
-					amber: '#f59e0b',
-					gray: '#64748b',
-					lightGray: '#f1f5f9'
+					primary: '#ffd700', // Gold - primary brand color
+					secondary: '#cb0170', // Pink - for buttons
+					lightPink: '#ffc0cb', // Light Pink - accent
+					lightGreen: '#aaddaa', // Light Green - accent
+					gold: '#ffc001', // Gold variation - accent
+					darkGray: '#333333', // Dark text color 
+					lightGray: '#f8f8f8' // Light background
 				}
 			},
 			borderRadius: {

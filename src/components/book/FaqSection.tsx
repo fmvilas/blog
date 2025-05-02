@@ -39,10 +39,10 @@ const FaqSection = () => {
     <section id="faq" className="py-16 md:py-24 bg-book-lightGray">
       <div className="container px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 opacity-0 animate-slide-up">
-          <h2 className="text-book-navy text-3xl font-bold tracking-tighter sm:text-4xl">
+          <h2 className="text-book-darkGray text-3xl font-bold tracking-tighter sm:text-4xl">
             Frequently Asked Questions
           </h2>
-          <p className="mt-4 text-book-gray md:text-lg">
+          <p className="mt-4 text-book-darkGray/80 md:text-lg">
             Everything you need to know about the book and pre-ordering process
           </p>
         </div>
@@ -51,10 +51,10 @@ const FaqSection = () => {
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200">
-                <AccordionTrigger className="text-left font-medium text-book-navy py-4 hover:text-book-teal transition-colors">
+                <AccordionTrigger className="text-left font-medium text-book-darkGray py-4 hover:text-book-secondary transition-colors">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-book-gray pb-4">
+                <AccordionContent className="text-book-darkGray/80 pb-4">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -63,8 +63,8 @@ const FaqSection = () => {
         </div>
         
         <div className="mt-12 text-center opacity-0 animate-slide-up animate-delay-600">
-          <p className="text-book-gray">
-            Have more questions? <a href="#contact" className="text-book-teal hover:underline">Contact us</a>
+          <p className="text-book-darkGray/80">
+            Have more questions? <a href="#contact" className="text-book-secondary hover:underline">Contact us</a>
           </p>
         </div>
       </div>

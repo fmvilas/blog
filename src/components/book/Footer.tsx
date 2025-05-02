@@ -4,12 +4,12 @@ import { Book } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-book-navy text-white py-12">
+    <footer className="bg-book-darkGray text-white py-12">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <div className="flex items-center">
-              <Book className="h-6 w-6 text-book-teal mr-2" />
+              <Book className="h-6 w-6 text-book-primary mr-2" />
               <span className="text-xl font-bold">Shift</span>
             </div>
             <p className="mt-2 text-sm text-gray-300">
@@ -19,7 +19,7 @@ const Footer = () => {
           
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:gap-16">
             <div>
-              <h3 className="text-sm font-medium text-book-teal mb-3">Navigation</h3>
+              <h3 className="text-sm font-medium text-book-secondary mb-3">Navigation</h3>
               <ul className="space-y-2">
                 {[
                   { name: "Home", href: "#" },
@@ -30,7 +30,7 @@ const Footer = () => {
                   <li key={item.name}>
                     <a 
                       href={item.href}
-                      className="text-gray-300 hover:text-white transition-colors"
+                      className="text-gray-300 hover:text-book-primary transition-colors"
                     >
                       {item.name}
                     </a>
@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
             
             <div>
-              <h3 className="text-sm font-medium text-book-teal mb-3">Connect</h3>
+              <h3 className="text-sm font-medium text-book-secondary mb-3">Connect</h3>
               <ul className="space-y-2">
                 {[
                   { name: "Twitter", href: "#" },
@@ -51,7 +51,7 @@ const Footer = () => {
                   <li key={item.name}>
                     <a 
                       href={item.href}
-                      className="text-gray-300 hover:text-white transition-colors"
+                      className="text-gray-300 hover:text-book-primary transition-colors"
                     >
                       {item.name}
                     </a>
@@ -61,7 +61,7 @@ const Footer = () => {
             </div>
             
             <div className="col-span-2 sm:col-span-1">
-              <h3 className="text-sm font-medium text-book-teal mb-3">Legal</h3>
+              <h3 className="text-sm font-medium text-book-secondary mb-3">Legal</h3>
               <ul className="space-y-2">
                 {[
                   { name: "Privacy Policy", href: "#" },
@@ -71,7 +71,7 @@ const Footer = () => {
                   <li key={item.name}>
                     <a 
                       href={item.href}
-                      className="text-gray-300 hover:text-white transition-colors"
+                      className="text-gray-300 hover:text-book-primary transition-colors"
                     >
                       {item.name}
                     </a>

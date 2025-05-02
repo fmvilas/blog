@@ -25,14 +25,14 @@ const NavBar = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-book-navy/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'
+      isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'
     }`}>
       <div className="container px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Book className={`h-6 w-6 ${isScrolled ? 'text-book-teal' : 'text-white'} mr-2`} />
-            <span className={`text-xl font-bold ${isScrolled ? 'text-white' : 'text-white'}`}>Shift</span>
+            <Book className={`h-6 w-6 ${isScrolled ? 'text-book-secondary' : 'text-book-secondary'} mr-2`} />
+            <span className={`text-xl font-bold ${isScrolled ? 'text-book-darkGray' : 'text-book-darkGray'}`}>Shift</span>
           </div>
           
           {/* Desktop Navigation */}
@@ -47,7 +47,7 @@ const NavBar = () => {
                 key={item.name}
                 href={item.href}
                 className={`text-sm font-medium ${
-                  isScrolled ? 'text-gray-300 hover:text-white' : 'text-gray-200 hover:text-white'
+                  isScrolled ? 'text-book-darkGray hover:text-book-secondary' : 'text-book-darkGray hover:text-book-secondary'
                 } transition-colors`}
               >
                 {item.name}
@@ -60,8 +60,8 @@ const NavBar = () => {
             <Button 
               className={`${
                 isScrolled 
-                  ? 'bg-book-teal text-white hover:bg-book-teal/90' 
-                  : 'bg-white text-book-navy hover:bg-white/90'
+                  ? 'bg-book-secondary text-white hover:bg-book-secondary/90' 
+                  : 'bg-book-secondary text-white hover:bg-book-secondary/90'
               }`}
             >
               Pre-order
@@ -73,7 +73,7 @@ const NavBar = () => {
             <Button
               variant="ghost"
               size="icon"
-              className={`text-white`}
+              className={`text-book-darkGray`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? (
@@ -88,8 +88,8 @@ const NavBar = () => {
       
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-book-navy/95 backdrop-blur-md">
-          <div className="px-4 py-6 space-y-1 divide-y divide-gray-700/50">
+        <div className="md:hidden bg-white/95 backdrop-blur-md">
+          <div className="px-4 py-6 space-y-1 divide-y divide-gray-200/50">
             {[
               { name: "About", href: "#about" },
               { name: "Author", href: "#author" },
@@ -99,7 +99,7 @@ const NavBar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-3 text-base font-medium text-gray-200 hover:text-white transition-colors"
+                className="block py-3 text-base font-medium text-book-darkGray hover:text-book-secondary transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
@@ -107,7 +107,7 @@ const NavBar = () => {
             ))}
             <div className="pt-4">
               <Button 
-                className="w-full bg-book-teal text-white hover:bg-book-teal/90 mt-2" 
+                className="w-full bg-book-secondary text-white hover:bg-book-secondary/90 mt-2" 
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Pre-order Now

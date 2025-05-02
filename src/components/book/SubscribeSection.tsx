@@ -28,10 +28,10 @@ const SubscribeSection = () => {
     <section id="subscribe" className="py-16 md:py-24 bg-white">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center opacity-0 animate-slide-up">
-          <h2 className="text-book-navy text-3xl font-bold tracking-tighter sm:text-4xl">
+          <h2 className="text-book-darkGray text-3xl font-bold tracking-tighter sm:text-4xl">
             Stay Updated on Launch Details
           </h2>
-          <p className="mt-4 text-book-gray md:text-xl">
+          <p className="mt-4 text-book-darkGray md:text-xl">
             Be the first to know when pre-orders open and receive exclusive content and early-bird discounts.
           </p>
           
@@ -43,21 +43,21 @@ const SubscribeSection = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="block w-full rounded-md border-0 py-1.5 text-book-navy shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-book-gray focus:ring-2 focus:ring-inset focus:ring-book-teal sm:text-sm"
+                className="block w-full rounded-md border-0 py-1.5 text-book-darkGray shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-book-darkGray/60 focus:ring-2 focus:ring-inset focus:ring-book-secondary sm:text-sm"
               />
             </div>
             <div className="mt-3 sm:mt-0 sm:ml-3">
               <Button 
                 type="submit"
                 disabled={isSubmitting}
-                className="flex w-full items-center justify-center rounded-md bg-book-teal px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-book-teal/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-book-teal"
+                className="flex w-full items-center justify-center rounded-md bg-book-secondary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-book-secondary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-book-secondary"
               >
                 {isSubmitting ? 'Subscribing...' : 'Notify Me'}
               </Button>
             </div>
           </form>
           
-          <p className="mt-3 text-sm text-book-gray">
+          <p className="mt-3 text-sm text-book-darkGray/60">
             We respect your privacy. Unsubscribe at any time.
           </p>
         </div>

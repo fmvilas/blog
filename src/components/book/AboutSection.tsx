@@ -7,10 +7,10 @@ const AboutSection = () => {
       <div className="container px-4 md:px-6">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
           <div className="space-y-6 opacity-0 animate-slide-up">
-            <h2 className="text-book-navy text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About the Book</h2>
-            <div className="space-y-4 text-book-gray">
+            <h2 className="text-book-darkGray text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About the Book</h2>
+            <div className="space-y-4 text-book-darkGray">
               <p className="leading-relaxed">
-                <span className="font-semibold text-book-teal">Shift</span> is a comprehensive guide for senior engineers and architects who want to drive the adoption of event-driven architecture in their organizations.
+                <span className="font-semibold text-book-secondary">Shift</span> is a comprehensive guide for senior engineers and architects who want to drive the adoption of event-driven architecture in their organizations.
               </p>
               <p className="leading-relaxed">
                 Unlike other technical books that focus only on implementation details, Shift provides a complete playbook for advocating, designing, and implementing event-driven systems in complex enterprise environments.
@@ -21,25 +21,25 @@ const AboutSection = () => {
             </div>
             <div className="flex flex-wrap gap-4 pt-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-book-teal"></div>
-                <span className="text-book-navy font-medium">400+ pages</span>
+                <div className="w-2 h-2 rounded-full bg-book-secondary"></div>
+                <span className="text-book-darkGray font-medium">400+ pages</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-book-teal"></div>
-                <span className="text-book-navy font-medium">25+ case studies</span>
+                <div className="w-2 h-2 rounded-full bg-book-secondary"></div>
+                <span className="text-book-darkGray font-medium">25+ case studies</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-book-teal"></div>
-                <span className="text-book-navy font-medium">Code examples</span>
+                <div className="w-2 h-2 rounded-full bg-book-secondary"></div>
+                <span className="text-book-darkGray font-medium">Code examples</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-book-teal"></div>
-                <span className="text-book-navy font-medium">Architecture diagrams</span>
+                <div className="w-2 h-2 rounded-full bg-book-secondary"></div>
+                <span className="text-book-darkGray font-medium">Architecture diagrams</span>
               </div>
             </div>
           </div>
           <div className="space-y-6 opacity-0 animate-slide-up animate-delay-300">
-            <h3 className="text-book-navy text-2xl font-bold">Key Topics</h3>
+            <h3 className="text-book-darkGray text-2xl font-bold">Key Topics</h3>
             <ul className="space-y-4">
               {[
                 "Building the business case for event-driven architecture",
@@ -52,10 +52,10 @@ const AboutSection = () => {
                 "Scaling teams and knowledge across your organization"
               ].map((topic, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <div className="mt-1 w-5 h-5 rounded-full bg-book-amber flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-sm font-medium">{index + 1}</span>
+                  <div className="mt-1 w-5 h-5 rounded-full bg-book-primary flex items-center justify-center flex-shrink-0">
+                    <span className="text-book-darkGray text-sm font-medium">{index + 1}</span>
                   </div>
-                  <span className="text-book-gray">{topic}</span>
+                  <span className="text-book-darkGray">{topic}</span>
                 </li>
               ))}
             </ul>

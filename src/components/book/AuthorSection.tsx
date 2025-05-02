@@ -3,26 +3,26 @@ import React from 'react';
 
 const AuthorSection = () => {
   return (
-    <section id="author" className="py-16 md:py-24 bg-book-lightGray">
+    <section id="author" className="py-16 md:py-24 bg-book-primary/10">
       <div className="container px-4 md:px-6">
         <div className="grid gap-8 lg:grid-cols-[1fr_2fr] lg:gap-16 items-center">
           <div className="mx-auto lg:mx-0 opacity-0 animate-slide-up">
-            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-book-teal to-book-navy p-1">
-              <div className="w-full h-full rounded-full bg-book-lightGray flex items-center justify-center">
+            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-book-lightPink to-book-secondary p-1">
+              <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
                 <div className="text-center p-4">
-                  <span className="block text-book-navy text-5xl font-bold">A.D.</span>
-                  <span className="block text-book-teal text-sm mt-2">Author Photo</span>
+                  <span className="block text-book-secondary text-5xl font-bold">A.D.</span>
+                  <span className="block text-book-darkGray text-sm mt-2">Author Photo</span>
                 </div>
               </div>
             </div>
           </div>
           <div className="space-y-6 opacity-0 animate-slide-up animate-delay-300">
             <div>
-              <h4 className="text-book-teal text-lg font-medium">Meet the Author</h4>
-              <h2 className="text-book-navy text-3xl font-bold tracking-tighter mt-1">Alex Dornfeld</h2>
-              <p className="text-book-gray mt-2">Principal Architect & Event-Driven Systems Expert</p>
+              <h4 className="text-book-secondary text-lg font-medium">Meet the Author</h4>
+              <h2 className="text-book-darkGray text-3xl font-bold tracking-tighter mt-1">Alex Dornfeld</h2>
+              <p className="text-book-darkGray mt-2">Principal Architect & Event-Driven Systems Expert</p>
             </div>
-            <div className="space-y-4 text-book-gray">
+            <div className="space-y-4 text-book-darkGray">
               <p className="leading-relaxed">
                 With over 15 years of experience designing and implementing event-driven systems at scale, Alex has helped dozens of organizations transform their architecture to meet the demands of modern digital business.
               </p>
