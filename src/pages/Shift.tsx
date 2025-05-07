@@ -8,6 +8,8 @@ import AudienceSection from '@/components/book/AudienceSection';
 import SubscribeSection from '@/components/book/SubscribeSection';
 import FaqSection from '@/components/book/FaqSection';
 import Footer from '@/components/book/Footer';
+import { PageSEO } from '@/components/SEO';
+import siteMetadata from '@/data/siteMetadata';
 
 const Shift = () => {
   // Reset scroll position when component mounts
@@ -17,6 +19,7 @@ const Shift = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageSEO path="/" title={siteMetadata.book.title} description={siteMetadata.book.description} />
       <NavBar items={[
         { name: "Home", href: "/" },
         { name: "About", href: "#about" },
