@@ -1,9 +1,9 @@
 const siteMetadata = {
-  title: "Fran Mendez's Mailing List",
+  title: "Fran Mendez",
   author: 'Fran Mendez',
   headerTitle: 'Fran Mendez',
   description:
-    'Get an opinion article every Sunday about engineering, design, and life. I\'m Fran Méndez, creator of AsyncAPI, the industry standard for describing asynchronous APIs. Put your email below and I\'ll make sure you always learn something new every week.',
+    'Go behind the scenes of writing Shift and get expert takes on Event-Driven Architecture every week. I\'m Fran Méndez, creator of AsyncAPI (the industry standard). Each week, I share what I\'m learning in the EDA space, my direct thoughts on new tech, and practical advice for engineers. Subscribe below for useful insights you can apply to your work.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.fmvilas.me',
