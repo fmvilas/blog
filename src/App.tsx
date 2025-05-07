@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Shift from "./pages/Shift";
 import NotFound from "./pages/NotFound";
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <GoogleAnalytics />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
