@@ -32,7 +32,7 @@ export const Subscribe = ({
   }, []);
 
   return (
-    <div className={`flex flex-col w-full mt-8 ${alignment === "center" ? "items-center" : "items-start"} opacity-0 animate-slide-up`}>
+    <div className={`flex flex-col w-full ${alignment === "center" ? "items-center" : "items-start"} opacity-0 animate-slide-up`}>
       <form
         action="https://app.kit.com/forms/7915370/subscriptions"
         className="seva-form formkit-form w-full"
@@ -88,10 +88,6 @@ export const Subscribe = ({
           </div>
         </div>
       </form>
-
-      <p className="text-sm text-book-darkGray/60 mt-4">
-        We respect your privacy. Unsubscribe at any time.
-      </p>
     </div>
   );
 };

@@ -37,7 +37,7 @@ const Home = () => {
                 <h1 className="text-3xl md:text-5xl md:leading-normal xl:text-5xl xl:leading-normal font-bold text-book-darkGray mb-4">
                   Go behind the scenes of writing <a className="text-book-secondary" href="/shift">Shift</a> and get expert takes on <span className="text-indigo-600">Event-Driven Architecture</span> every week.
                 </h1>
-                <p className="text-book-darkGray text-lg md:text-xl xl:text-2xl">
+                <p className="text-book-darkGray text-lg mb-8 md:text-xl xl:text-2xl">
                   I'm Fran Méndez, creator of <a
                     href="https://asyncapi.com?utm_source=fmvilas.me&utm_medium=website&utm_campaign=homepage&utm_content=hero"
                     target="_blank"

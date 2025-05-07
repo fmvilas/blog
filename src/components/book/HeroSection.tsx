@@ -18,7 +18,7 @@ const HeroSection = () => {
                 Unlock your organization's potential through effective event-driven advocacy and actionable techniques.
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row opacity-0 animate-fade-in animate-delay-300">
+            <div className="flex flex-col gap-3 pt-8 sm:flex-row opacity-0 animate-fade-in animate-delay-300">
               <Subscribe uid="e046de302e" formId="7915370" />
             </div>
           </div>

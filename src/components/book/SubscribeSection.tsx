@@ -8,7 +8,7 @@ const SubscribeSection = () => {
           <h2 className="text-book-darkGray text-3xl font-bold tracking-tighter sm:text-4xl">
             Stay Updated on Launch Details
           </h2>
-          <p className="mt-4 text-book-darkGray md:text-xl">
+          <p className="mt-4 mb-8 text-book-darkGray md:text-xl">
             Be the first to know when pre-orders open and receive exclusive content and early-bird discounts.
           </p>
           
