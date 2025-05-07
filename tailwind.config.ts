@@ -1,5 +1,6 @@
-
+import { plugin } from "postcss";
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -19,6 +20,24 @@ export default {
 			}
 		},
 		extend: {
+			textShadow: {
+				sm: '0 1px 2px var(--tw-shadow-color)',
+				DEFAULT: '0 2px 4px var(--tw-shadow-color)',
+				lg: '0 8px 16px var(--tw-shadow-color)',
+			},
+			spacing: {
+				'9/16': '56.25%',
+			},
+			lineHeight: {
+				11: '2.75rem',
+				12: '3rem',
+				13: '3.25rem',
+				14: '3.5rem',
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				heading: ['Montserrat', 'sans-serif']
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -64,13 +83,13 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				book: {
-					primary: '#ffd700', // Gold - primary brand color
-					secondary: '#cb0170', // Pink - for buttons
-					lightPink: '#ffc0cb', // Light Pink - accent
-					lightGreen: '#aaddaa', // Light Green - accent
-					gold: '#ffc001', // Gold variation - accent
-					darkGray: '#333333', // Dark text color 
-					lightGray: '#f8f8f8' // Light background
+					primary: '#1D3557', // Berkeley Blue - primary brand color
+					secondary: '#E63946', // Red Pantone - for buttons
+					lightPink: '#F1FAEE', // Honeydew - accent
+					lightGreen: '#A8DADC', // Non-photo Blue - accent
+					gold: '#457B9D', // Cerulean - accent
+					darkGray: '#1D3557', // Berkeley Blue for text
+					lightGray: '#F1FAEE' // Honeydew background
 				}
 			},
 			borderRadius: {
@@ -109,12 +128,20 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'slide-up': 'slide-up 0.6s ease-out forwards'
-			},
-			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				heading: ['Montserrat', 'sans-serif']
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		animate,
+		function({ matchUtilities, theme }) {
+			matchUtilities(
+				{
+					'text-shadow': (value) => ({
+						textShadow: value,
+					}),
+				},
+				{ values: theme('textShadow') }
+			)
+		},
+	],
 } satisfies Config;

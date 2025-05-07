@@ -1,9 +1,14 @@
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Book, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { Logo } from '../logo';
 
-const NavBar = () => {
+const NavBar = ({
+  items,
+}: {
+  items: { name: string; href: string }[];
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -31,18 +36,13 @@ const NavBar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Book className={`h-6 w-6 ${isScrolled ? 'text-book-secondary' : 'text-book-secondary'} mr-2`} />
-            <span className={`text-xl font-bold ${isScrolled ? 'text-book-darkGray' : 'text-book-darkGray'}`}>Shift</span>
+            <Logo />
+            <span className={`ml-2 text-xl font-bold ${isScrolled ? 'text-book-darkGray' : 'text-book-darkGray'}`}>Shift</span>
           </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {[
-              { name: "About", href: "#about" },
-              { name: "Author", href: "#author" },
-              { name: "Audience", href: "#audience" },
-              { name: "FAQ", href: "#faq" },
-            ].map((item) => (
+            {items.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
@@ -55,18 +55,7 @@ const NavBar = () => {
             ))}
           </nav>
           
-          {/* Pre-order button (desktop) */}
-          <div className="hidden md:block">
-            <Button 
-              className={`${
-                isScrolled 
-                  ? 'bg-book-secondary text-white hover:bg-book-secondary/90' 
-                  : 'bg-book-secondary text-white hover:bg-book-secondary/90'
-              }`}
-            >
-              Pre-order
-            </Button>
-          </div>
+          <div className="hidden md:block" />
           
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -89,30 +78,17 @@ const NavBar = () => {
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-md">
-          <div className="px-4 py-6 space-y-1 divide-y divide-gray-200/50">
-            {[
-              { name: "About", href: "#about" },
-              { name: "Author", href: "#author" },
-              { name: "Audience", href: "#audience" },
-              { name: "FAQ", href: "#faq" },
-            ].map((item) => (
+          <div className="px-4 space-y-0 divide-y divide-gray-200/50">
+            {items.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-3 text-base font-medium text-book-darkGray hover:text-book-secondary transition-colors"
+                className="block py-6 text-center text-base font-medium text-book-darkGray hover:text-book-secondary transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </a>
             ))}
-            <div className="pt-4">
-              <Button 
-                className="w-full bg-book-secondary text-white hover:bg-book-secondary/90 mt-2" 
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Pre-order Now
-              </Button>
-            </div>
           </div>
         </div>
       )}

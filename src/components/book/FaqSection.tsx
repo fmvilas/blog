@@ -11,7 +11,7 @@ const FaqSection = () => {
   const faqs = [
     {
       question: "When will the book be released?",
-      answer: "The book is scheduled for release in July 2025. Pre-orders will be available approximately 3 months before release."
+      answer: "It's still too early to say but I'm aiming for a release in the second half of 2025. Pre-orders will be available approximately 3 months before release. Make sure to subscribe to my newsletter to be the first to know when pre-orders are available."
     },
     {
       question: "What formats will be available?",
@@ -19,20 +19,20 @@ const FaqSection = () => {
     },
     {
       question: "Is this book only relevant for those using specific technologies?",
-      answer: "No, the principles and strategies in Shift are technology-agnostic. While we include implementation examples using popular technologies, the focus is on architectural patterns, organizational change strategies, and adoption approaches that work across different technology stacks."
+      answer: "No, the principles and strategies in Shift are technology-agnostic. The focus is on architectural patterns, organizational change strategies, and adoption approaches that work across different technology stacks."
     },
     {
       question: "I'm new to event-driven architecture. Is this book right for me?",
       answer: "Shift assumes a foundational understanding of software architecture principles and distributed systems. While experienced engineers will get the most value, the book includes refreshers on key concepts to help bring readers up to speed."
     },
-    {
-      question: "Will there be code examples and diagrams?",
-      answer: "Yes! The book includes numerous code examples, architecture diagrams, decision frameworks, and templates that you can apply in your organization."
-    },
-    {
-      question: "Are there any bulk purchase discounts for teams?",
-      answer: "Yes, we offer special pricing for team purchases of 5+ copies. Contact us at team@shiftbook.com for details."
-    }
+    // {
+    //   question: "Will there be code examples and diagrams?",
+    //   answer: "Yes! The book includes numerous code examples, architecture diagrams, decision frameworks, and templates that you can apply in your organization."
+    // },
+    // {
+    //   question: "Are there any bulk purchase discounts for teams?",
+    //   answer: "Yes, we offer special pricing for team purchases of 5+ copies. Contact us at team@shiftbook.com for details."
+    // }
   ];
 
   return (
@@ -64,7 +64,7 @@ const FaqSection = () => {
         
         <div className="mt-12 text-center opacity-0 animate-slide-up animate-delay-600">
           <p className="text-book-darkGray/80">
-            Have more questions? <a href="#contact" className="text-book-secondary hover:underline">Contact us</a>
+            Have more questions? <a href="mailto:fran@fmvilas.me" className="text-book-secondary hover:underline">Contact me</a>
           </p>
         </div>
       </div>

@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { CheckCircle } from 'lucide-react';
 
 const AudienceSection = () => {
@@ -7,8 +5,8 @@ const AudienceSection = () => {
     <section id="audience" className="py-16 md:py-24 bg-book-primary text-book-darkGray">
       <div className="container px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 opacity-0 animate-slide-up">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Who This Book Is For</h2>
-          <p className="mt-4 text-book-darkGray/80 md:text-xl">
+          <h2 className="text-book-lightPink text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Who This Book Is For</h2>
+          <p className="mt-4 text-book-lightPink/80 md:text-xl">
             Shift is specifically crafted for experienced software professionals who want to lead architectural transformation
           </p>
         </div>
