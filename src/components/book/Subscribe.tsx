@@ -15,12 +15,6 @@ export const Subscribe = ({
     const script = document.createElement('script');
     script.src = 'https://f.convertkit.com/ckjs/ck.5.js';
     script.async = true;
-    // script.setAttribute('data-uid', 'e046de302e');
-    // Add script to all kit-form-container elements
-    // const containers = document.querySelectorAll('.kit-form-container');
-    // containers.forEach(container => {
-    //   container.appendChild(script);
-    // });
     
     // Also add to body for initialization
     document.body.appendChild(script);
@@ -34,7 +28,7 @@ export const Subscribe = ({
   return (
     <div className={`flex flex-col w-full ${alignment === "center" ? "items-center" : "items-start"} opacity-0 animate-slide-up`}>
       <form
-        action="https://app.kit.com/forms/7915370/subscriptions"
+        action={`https://app.kit.com/forms/${formId}/subscriptions`}
         className="seva-form formkit-form w-full"
         method="post"
         data-sv-form={formId}
