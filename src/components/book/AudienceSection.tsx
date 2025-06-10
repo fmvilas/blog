@@ -13,7 +13,7 @@ const AudienceSection = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 opacity-0 animate-slide-up animate-delay-300">
           <div className="bg-white/90 backdrop-blur-sm border border-book-primary/30 rounded-xl p-6 hover:bg-white transition-colors shadow-md">
-            <h3 className="text-xl font-bold text-book-secondary mb-3">Staff+ Software Engineers</h3>
+            <h3 className="text-xl font-bold text-book-secondary mb-3">Senior Software Engineers</h3>
             <ul className="space-y-3">
               {[
                 "Looking to expand their architectural influence",

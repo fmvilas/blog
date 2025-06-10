@@ -1,6 +1,6 @@
-
 import React, { useEffect } from 'react';
 import NavBar from '@/components/book/NavBar';
+import EarlyReaderNotice from '@/components/book/EarlyReaderNotice';
 import HeroSection from '@/components/book/HeroSection';
 import AboutSection from '@/components/book/AboutSection';
 import AuthorSection from '@/components/book/AuthorSection';
@@ -20,6 +20,7 @@ const Shift = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <PageSEO path="/" title={siteMetadata.book.title} description={siteMetadata.book.description} />
+      <EarlyReaderNotice />
       <NavBar items={[
         { name: "Home", href: "/" },
         { name: "About", href: "#about" },
@@ -27,7 +28,7 @@ const Shift = () => {
         { name: "Audience", href: "#audience" },
         { name: "FAQ", href: "#faq" },
       ]} />
-      <main className="flex-grow">
+      <main className="flex-grow pt-12">
         <HeroSection />
         <AboutSection />
         <AuthorSection />

@@ -20,13 +20,13 @@ const AuthorSection = () => {
             </div>
             <div className="space-y-4 text-book-darkGray">
               <p className="leading-relaxed">
-                As the creator of AsyncAPI, Fran M&eacute;ndez has been pivotal in designing and fostering the adoption of event-driven systems at scale. Through this initiative, he has empowered countless organizations globally to transform their architectures and effectively meet the demands of modern digital business.
+                My journey with event-driven architecture wasn't theoretical. I created AsyncAPI because I was dealing with the real-world mess of distributed systems and couldn't find a good way to manage it. I needed a way to bring order to the chaos.
               </p>
               <p className="leading-relaxed">
-                As the founder of the AsyncAPI Initiative (now a Linux Foundation project), Fran has navigated the complex landscape of establishing a new standard for asynchronous APIs, addressing the challenges of interoperability, and guiding the evolution of event-driven practices across the industry. His work stems from a direct need to solve the complexities he encountered in real-world distributed systems.
+                Turning that idea into the AsyncAPI Initiative, and eventually a Linux Foundation project, taught me a ton. The biggest lesson? Building great technology is only half the battle. The other half—the harder half—is getting people to understand, adopt, and agree on it. I had to learn how to navigate corporate pushback, build a community, and create a standard from scratch.
               </p>
               <p className="leading-relaxed">
-                Now, through the AsyncAPI specification, its tools, and a vibrant community, Fran shares the battle-tested strategies and a clear blueprint that have helped teams worldwide succeed in advocating for and implementing robust event-driven architectures, even in organizations initially resistant to such transformative change.
+                This book is where I share everything I learned from that process. It’s not just about the tech; it's the playbook of battle-tested strategies that helped teams all over the world succeed with EDA, even when it felt like an uphill climb.
               </p>
             </div>
           </div>
