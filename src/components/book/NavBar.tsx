@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
 import { Logo } from '../logo';
+import EarlyReaderNotice from './EarlyReaderNotice';
 
 const NavBar = ({
   items,
@@ -28,10 +29,11 @@ const NavBar = ({
   }, []);
 
   return (
-    <header className={`fixed top-[60px] left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md' : 'bg-transparent'
     }`}>
-      <div className="container px-4 md:px-6">
+      <EarlyReaderNotice />
+      <div className="container px-4 py-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
@@ -76,13 +78,15 @@ const NavBar = ({
       
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md">
-          <div className="px-4 space-y-0 divide-y divide-gray-200/50">
-            {items.map((item) => (
+        <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200/20">
+          <div className="px-4 py-2">
+            {items.map((item, index) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-6 text-center text-base font-medium text-book-darkGray hover:text-book-secondary transition-colors"
+                className={`block py-4 text-center text-base font-medium text-book-darkGray hover:text-book-secondary transition-colors ${
+                  index !== items.length - 1 ? 'border-b border-gray-200/30' : ''
+                }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}

@@ -2,11 +2,7 @@ import { Subscribe } from "./Subscribe";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-book-lightPink to-white py-20 md:py-24 lg:py-32 text-book-darkGray">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute h-full w-full bg-[radial-gradient(#1D3557_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
-      </div>
-      
+    <section className="relative overflow-hidden py-20 md:py-24 lg:py-32 text-book-darkGray">
       <div className="container px-4 md:px-6 relative z-10">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <div className="flex flex-col justify-center space-y-4">
