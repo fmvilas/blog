@@ -5,8 +5,13 @@ import Footer from '@/components/Footer';
 import { Logo } from '@/components/logo';
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
+import { useState } from 'react';
+import { Button } from "@/components/ui/button";
+import { Menu, X } from 'lucide-react';
 
 const Home = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <>
       <EarlyReaderNotice />
@@ -24,15 +29,68 @@ const Home = () => {
                 className="h-16"
               />
             </div>
+            
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <a
                 href="/shift"
                 className="flex items-center gap-2 shrink-0 text-sm font-semibold text-book-darkGray hover:text-book-secondary"
+                rel="noopener noreferrer"
               >
-                <span className="text-xl">👀 📖 👉</span><div className="flex items-center gap-2"><Logo /><span className="text-xl font-bold">Shift</span></div>
+                The Shift Book
+              </a>
+              <a
+                href="https://cal.com/fran-mendez"
+                className="flex items-center gap-2 shrink-0 text-sm font-semibold text-book-darkGray hover:text-book-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book 1:1 Consulting Call
               </a>
             </nav>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-book-darkGray"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </Button>
+            </div>
           </header>
+
+          {/* Mobile menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden bg-white/95 backdrop-blur-md border border-gray-200/20 rounded-lg mb-8 shadow-lg">
+              <div className="px-4 py-2">
+                <a
+                  href="/shift"
+                  className="block py-4 text-center text-base font-medium text-book-darkGray hover:text-book-secondary transition-colors border-b border-gray-200/30"
+                  onClick={() => setMobileMenuOpen(false)}
+                  rel="noopener noreferrer"
+                >
+                  The Shift Book
+                </a>
+                <a
+                  href="https://cal.com/fmvilas/consulting"
+                  className="block py-4 text-center text-base font-medium text-book-darkGray hover:text-book-secondary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book 1:1 Consulting Call
+                </a>
+              </div>
+            </div>
+          )}
+
           <div className="flex flex-col items-center mb-16 md:mb-32 md:mt-24">
             <div className="flex flex-col w-full items-center justify-between">
               <div className="flex w-full">

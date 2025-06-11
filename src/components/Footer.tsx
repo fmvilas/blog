@@ -21,8 +21,18 @@ const Footer = () => {
             <MailIcon className="h-6 w-6 fill-book-darkGray hover:scale-125 hover:fill-book-secondary transition-all duration-200" />
           </a>
         </div>
-        <div className="flex mb-8 space-x-2 text-sm text-book-darkGray">
-          Made with 💛 by Fran Méndez
+        <div className="flex flex-col items-center mb-8 space-y-4">
+          <a
+            href="https://cal.com/fran-mendez"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-book-primary text-white rounded-lg text-sm font-medium hover:bg-book-secondary/90 transition-colors hover:scale-105"
+          >
+            Book 1:1 Consulting Call
+          </a>
+          <div className="text-sm text-book-darkGray">
+            Made with 💛 by Fran Méndez
+          </div>
         </div>
       </div>
     </footer>
