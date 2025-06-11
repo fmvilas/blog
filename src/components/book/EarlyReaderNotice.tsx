@@ -5,7 +5,7 @@ const EarlyReaderNotice = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-center">
           <div className="flex-1">
             <p className="text-xs sm:text-sm md:text-base font-normal leading-relaxed">
-              📚 <strong>Early Reader Available!</strong> Get early access to read "Shift" and help shape the book's direction.
+              📚 <strong>Early Reader Available!</strong> Be one of the first to read "Shift" at a discounted price.
             </p>
           </div>
           <a
