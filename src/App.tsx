@@ -22,7 +22,10 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/shift/*" element={<Shift />} />
-          <Route path="/shift/style-guide" element={<StyleGuide />} />
+          <Route
+            path="/shift/communication-style-guide"
+            element={<StyleGuide />}
+          />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
