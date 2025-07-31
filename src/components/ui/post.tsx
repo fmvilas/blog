@@ -75,8 +75,26 @@ const Post: React.FC<PostProps> = ({ title, cover, content }) => {
   };
 
   return (
-    <div className="min-h-screen">
-      <div className="container mx-auto mt-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white">
+      <header className="mb-8 mt-20 bg-[#1D3557] bg-[radial-gradient(#1D3557_1px,transparent_1px)] [background-size:16px_16px] h-auto py-12">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-8">
+          <div className="w-full lg:w-1/2 text-center lg:text-left">
+            <h1 className="text-4xl leading-15 lg:text-6xl font-bold text-white leading-tight">
+              {title}
+            </h1>
+          </div>
+
+          <div className="w-full lg:w-1/2 flex justify-center">
+            <img
+              src={cover}
+              alt="Hero"
+              className="w-[70%] sm:w-[60%] md:w-[80%] lg:w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-16 mt-8">
           <div className="lg:hidden px-6">
             <button
@@ -114,31 +132,10 @@ const Post: React.FC<PostProps> = ({ title, cover, content }) => {
               </div>
             )}
           </div>
-
-          <article className="lg:col-span-3 p-6 sm:p-10">
-            <header className="mb-8">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-800 leading-tight mb-8">
-                {title}
-              </h1>
-            </header>
-            <div className="mb-8">
-              <img
-                src={cover}
-                alt="Hero"
-                className="w-full h-[30rem] object-cover rounded-lg"
-              />
-            </div>
-            <div
-              ref={contentRef}
-              className="markdown-content [&_h1]:scroll-mt-36 [&_h2]:scroll-mt-36 [&_h3]:scroll-mt-36 [&_h4]:scroll-mt-36 [&_h5]:scroll-mt-36 [&_h6]:scroll-mt-36"
-              dangerouslySetInnerHTML={{ __html: marked.parse(content) }}
-            />
-          </article>
-
-          <aside className="hidden lg:block lg:col-span-1 space-y-8">
-            <div className="bg-white rounded-lg shadow-lg p-6 sticky top-[150px]">
-              <h3 className="text-lg font-light text-gray-800 mb-6">
-                Table Of Contents
+          <aside className="hidden lg:block lg:col-span-1 mb-10 space-y-8">
+            <div className="bg-white min-w-[300px] rounded-lg shadow-lg p-6 sticky top-[150px] -mt-[80px]">
+              <h3 className="text-md font-bold text-gray-800 mb-6">
+                TABLE OF CONTENTS
               </h3>
               <ul className="space-y-3">
                 {tocItems.map((item) => (
@@ -147,7 +144,7 @@ const Post: React.FC<PostProps> = ({ title, cover, content }) => {
                       onClick={() => scrollToHeading(item.id)}
                       className={`text-left w-full text-gray-600 hover:text-book-secondary/100 transition-colors ${
                         activeHeading === item.id
-                          ? "text-blue-600 font-semibold"
+                          ? "text-secondary font-semibold"
                           : ""
                       } ${item.level === "h3" ? "pl-4" : ""} ${
                         item.level === "h4" ? "pl-6" : ""
@@ -162,6 +159,13 @@ const Post: React.FC<PostProps> = ({ title, cover, content }) => {
               </ul>
             </div>
           </aside>
+          <article className="lg:col-span-3 p-10 sm:p-10 lg:ml-8">
+            <div
+              ref={contentRef}
+              className="markdown-content [&_h1]:scroll-mt-36 [&_h2]:scroll-mt-36 [&_h3]:scroll-mt-36 [&_h4]:scroll-mt-36 [&_h5]:scroll-mt-36 [&_h6]:scroll-mt-36"
+              dangerouslySetInnerHTML={{ __html: marked.parse(content) }}
+            />
+          </article>
         </div>
       </div>
     </div>
