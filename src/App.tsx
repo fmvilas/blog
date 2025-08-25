@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import StyleGuide from "./pages/StyleGuide";
 import "./App.css";
+import VistaFramework from "./pages/VistaFramework";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
             path="/shift/communication-style-guide"
             element={<StyleGuide />}
           />
+          <Route path="/shift/vista-framework" element={<VistaFramework />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
