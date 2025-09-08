@@ -1,9 +1,9 @@
 import NavBar from "@/components/book/NavBar";
 import Footer from "@/components/Footer";
 import Post from "@/components/ui/post";
-import content from "../markdown/communication-style-guide.md?raw";
+import content from "../markdown/vista-framework.md?raw";
 
-function StyleGuide() {
+function VistaFramework() {
   return (
     <div>
       <NavBar
@@ -17,9 +17,9 @@ function StyleGuide() {
       />
       <main className="flex-grow pt-32 md:pt-24 lg:pt-12">
         <Post
-          title={`The "Shift" Communication Style Guide: Talking Tech So People Listen`}
+          title={`The "Shift" Vista Framework`}
           content={content}
-          cover={"/static/images/shift-graphic.png"}
+          cover={"/static/images/vista-framework.webp"}
         />
       </main>
       <Footer />
@@ -27,4 +27,4 @@ function StyleGuide() {
   );
 }
 
-export default StyleGuide;
+export default VistaFramework;

@@ -76,7 +76,7 @@ const Post: React.FC<PostProps> = ({ title, cover, content }) => {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="mb-8 mt-20 bg-[#1D3557] bg-[radial-gradient(#1D3557_1px,transparent_1px)] [background-size:16px_16px] h-auto py-12">
+      <header className="mb-8 mt-20 bg-[#1D3557] bg-[radial-gradient(#1D3557_1px,transparent_1px)] [background-size:16px_16px] min-h-[630px] py-12 flex flex-col justify-center items-center">
         <div className="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-8">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <h1 className="text-4xl leading-15 lg:text-6xl font-bold text-white leading-tight">
