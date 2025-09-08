@@ -23,12 +23,8 @@ const FaqSection = () => {
     },
     {
       question: "I'm new to event-driven architecture. Is this book right for me?",
-      answer: "Shift assumes a foundational understanding of software architecture principles and distributed systems. While experienced engineers will get the most value, the book includes refreshers on key concepts to help bring readers up to speed."
+      answer: "Shift assumes a foundational understanding of software architecture principles and distributed systems."
     },
-    // {
-    //   question: "Will there be code examples and diagrams?",
-    //   answer: "Yes! The book includes numerous code examples, architecture diagrams, decision frameworks, and templates that you can apply in your organization."
-    // },
     // {
     //   question: "Are there any bulk purchase discounts for teams?",
     //   answer: "Yes, we offer special pricing for team purchases of 5+ copies. Contact us at team@shiftbook.com for details."

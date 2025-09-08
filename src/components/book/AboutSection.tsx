@@ -45,7 +45,7 @@ const AboutSection = () => {
                   <span><strong>Navigate the implementation maze.</strong> Pushing code is one thing; making it work in a big enterprise is another. You'll get practical insights drawn from how AsyncAPI is evolving and being used today, so you can launch with impact.</span>,
                 ].map((topic, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <div className="mt-0.5 w-5 h-5 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                    <div className="mt-0.5 w-5 h-5 rounded-full bg-book-secondary flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-sm font-medium">{index + 1}</span>
                     </div>
                     <span className="text-book-darkGray">{topic}</span>
@@ -66,7 +66,7 @@ const AboutSection = () => {
                   "Going from One Team to an Entire Org: How to effectively scale your practices and expertise as you grow."
                 ].map((topic, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <div className="mt-0.5 w-5 h-5 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                    <div className="mt-0.5 w-5 h-5 rounded-full bg-book-secondary flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-sm font-medium">{index + 1}</span>
                     </div>
                     <span className="text-book-darkGray">{topic}</span>

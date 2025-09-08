@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
-import { Logo } from '../logo';
-import EarlyReaderNotice from './EarlyReaderNotice';
+import EarlyReaderNotice from './Notice';
 
 const NavBar = ({
   items,
@@ -34,13 +33,7 @@ const NavBar = ({
     }`}>
       <EarlyReaderNotice />
       <div className="container px-4 py-4 md:px-6">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center">
-            <Logo />
-            <span className={`ml-2 text-xl font-bold ${isScrolled ? 'text-book-darkGray' : 'text-book-darkGray'}`}>Shift</span>
-          </div>
-          
+        <div className="flex items-center justify-center">
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {items.map((item) => (

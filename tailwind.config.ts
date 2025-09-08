@@ -84,7 +84,7 @@ export default {
 				},
 				book: {
 					primary: '#1D3557', // Berkeley Blue - primary brand color
-					secondary: '#E63946', // Red Pantone - for buttons
+					secondary: '#5A375E', // Red Pantone - for buttons
 					lightPink: '#F1FAEE', // Honeydew - accent
 					lightGreen: '#A8DADC', // Non-photo Blue - accent
 					gold: '#457B9D', // Cerulean - accent
