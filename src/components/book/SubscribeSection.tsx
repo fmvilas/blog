@@ -9,7 +9,7 @@ const SubscribeSection = () => {
             Stay Updated on Launch Details
           </h2>
           <p className="mt-4 mb-8 text-book-darkGray md:text-xl">
-            Be the first to know when pre-orders open and receive exclusive content and early-bird discounts.
+            Receive exclusive content and early-bird discounts.
           </p>
           
           <Subscribe alignment="center" uid="e046de302e" formId="7915370" />

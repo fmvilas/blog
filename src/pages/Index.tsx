@@ -1,8 +1,6 @@
-import EarlyReaderNotice from '@/components/book/EarlyReaderNotice';
-import NavBar from '@/components/book/NavBar';
+import EarlyReaderNotice from '@/components/book/Notice';
 import { Subscribe } from '@/components/book/Subscribe';
 import Footer from '@/components/Footer';
-import { Logo } from '@/components/logo';
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { useState } from 'react';
@@ -37,15 +35,7 @@ const Home = () => {
                 className="flex items-center gap-2 shrink-0 text-sm font-semibold text-book-darkGray hover:text-book-secondary"
                 rel="noopener noreferrer"
               >
-                The Shift Book
-              </a>
-              <a
-                href="https://cal.com/fran-mendez"
-                className="flex items-center gap-2 shrink-0 text-sm font-semibold text-book-darkGray hover:text-book-secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book 1:1 Consulting Call
+                Buy Shift
               </a>
             </nav>
 
@@ -76,16 +66,7 @@ const Home = () => {
                   onClick={() => setMobileMenuOpen(false)}
                   rel="noopener noreferrer"
                 >
-                  The Shift Book
-                </a>
-                <a
-                  href="https://cal.com/fmvilas/consulting"
-                  className="block py-4 text-center text-base font-medium text-book-darkGray hover:text-book-secondary transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Book 1:1 Consulting Call
+                  Buy Shift
                 </a>
               </div>
             </div>
@@ -96,7 +77,7 @@ const Home = () => {
               <div className="flex w-full">
                 <div className="flex flex-col xl:mr-16">
                   <h1 className="text-3xl md:text-5xl md:leading-normal xl:text-5xl xl:leading-normal font-bold text-book-darkGray mb-4">
-                    Go behind the scenes of writing <a className="text-book-secondary" href="/shift">Shift</a> and get expert takes on <span className="text-indigo-600">Event-Driven Architecture</span> every week.
+                    Go behind the scenes of writing <a className="text-secondary" href="/shift">Shift</a> and get expert takes on <span className="text-indigo-600">Event-Driven Architecture</span> every week.
                   </h1>
                   <p className="text-book-darkGray text-lg mb-8 md:text-xl xl:text-2xl">
                     I'm Fran Méndez, creator of <a
@@ -126,7 +107,7 @@ const Home = () => {
           </div>
           
           {/* Coming Soon: Shift Workshop Section */}
-          <div className="mb-16 md:mb-24">
+          <div className="hidden mb-16 md:mb-24">
             <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 md:p-12 border border-indigo-100">
               <div className="max-w-3xl mx-auto text-center">
                 <div className="mb-6">
@@ -158,6 +139,47 @@ const Home = () => {
               </div>
             </div>
           </div>
+          
+          {/* Testimonials Section */}
+          <div className="hidden mb-16 md:mb-24">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-book-darkGray mb-4">
+                  What People <span className="text-indigo-600">Say</span>
+                </h2>
+                <p className="text-lg md:text-xl text-book-darkGray/80 max-w-2xl mx-auto">
+                  Trusted by industry leaders and developers worldwide
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Testimonial 1 */}
+                <div className="group bg-gradient-to-br from-white via-indigo-50/30 to-blue-50/30 rounded-2xl p-8 border border-indigo-100/50 shadow-sm transition-all duration-300">
+                  <div className="flex flex-col h-full relative">
+                    <div className="absolute -top-2 left-0 text-6xl text-indigo-200/50 font-serif">"</div>
+                    <blockquote className="flex-grow relative">
+                      <p className="text-lg text-book-darkGray/80 leading-relaxed mb-8 pt-6">
+                        When I first learned how AsyncAPI came to be, I knew Fran was someone I wanted to connect with and collaborate with. His deep expertise in event-driven architecture has not only shaped an industry-standard specification, but also cultivated a thriving community around it. Whenever I need to have a deep, insightful conversation about event-driven systems, Fran is the person I turn to. Having worked with him, I can confidently recommend Fran for any organization looking to lead in this space.
+                      </p>
+                    </blockquote>
+                    <footer className="mt-auto pt-4 border-t border-indigo-100/30">
+                      <div className="flex items-center">
+                        <img
+                          src="/static/images/testimonials/david-boyne.png"
+                          alt="David Boyne"
+                          className="w-14 h-14 rounded-full mr-4 ring-2 ring-indigo-100 ring-offset-2"
+                        />
+                        <div>
+                          <div className="font-semibold text-book-darkGray">David Boyne</div>
+                          <div className="text-sm text-book-darkGray/70">Creator of EventCatalog</div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          
           
           <Footer />
         </div>
