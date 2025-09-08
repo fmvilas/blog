@@ -21,7 +21,7 @@ The project with the highest total score is your strongest candidate.
 
 Here is a template you can copy and adapt.
 
-[![The shift vista framwork matrix template](/public/static/images/The-Matrix-Template-Google-Sheets.webp 'The shift vista framwork matrix template')](https://docs.google.com/spreadsheets/d/1GHZWpfqqSuumx-yFS5ZsK-3rVh_Pn0kygJXTL5iOx9g/edit?usp=sharing)
+[![The shift vista framwork matrix template](/static/images/The-Matrix-Template-Google-Sheets.webp 'The shift vista framwork matrix template')](https://docs.google.com/spreadsheets/d/1GHZWpfqqSuumx-yFS5ZsK-3rVh_Pn0kygJXTL5iOx9g/edit?usp=sharing)
 
 
 ### How to Use It: A Step-by-Step Guide
@@ -39,7 +39,7 @@ Here is a template you can copy and adapt.
 
 **Matrix:**
 
-[![The shift vista framwork matrix template](/public/static/images/The-Matrix-Template-Google-Sheets-1.webp 'The shift vista framwork matrix template')](https://docs.google.com/spreadsheets/d/1GHZWpfqqSuumx-yFS5ZsK-3rVh_Pn0kygJXTL5iOx9g/edit?usp=sharing)
+[![The shift vista framwork matrix template](/static/images/The-Matrix-Template-Google-Sheets-1.webp 'The shift vista framwork matrix template')](https://docs.google.com/spreadsheets/d/1GHZWpfqqSuumx-yFS5ZsK-3rVh_Pn0kygJXTL5iOx9g/edit?usp=sharing)
 
 **Outcome:** The "Real-time Inventory Sync" wins by a large margin. Even though its scope is more complex than the notification service, its immense business impact and visibility make it the clear strategic choice.
 
@@ -49,6 +49,6 @@ Here is a template you can copy and adapt.
 
 **Matrix:**
 
-[![The shift vista framwork matrix template](/public/static/images/The-Matrix-Template-Google-Sheets-2.webp 'The shift vista framwork matrix template')](https://docs.google.com/spreadsheets/d/1GHZWpfqqSuumx-yFS5ZsK-3rVh_Pn0kygJXTL5iOx9g/edit?usp=sharing)
+[![The shift vista framwork matrix template](/static/images/The-Matrix-Template-Google-Sheets-2.webp 'The shift vista framwork matrix template')](https://docs.google.com/spreadsheets/d/1GHZWpfqqSuumx-yFS5ZsK-3rVh_Pn0kygJXTL5iOx9g/edit?usp=sharing)
 
 **Outcome:** Here, the project with the highest raw business impact, "Loan Origination Rewrite," loses. Why? Because the Manageable Scope score is a 1, making it a terrible candidate for a *first* pilot. The "Fraud Alert System" is the winner because it provides the best balance of high impact, visibility, and feasibility. It's the strategic sweet spot.
