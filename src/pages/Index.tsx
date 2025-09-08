@@ -1,4 +1,4 @@
-import EarlyReaderNotice from '@/components/book/EarlyReaderNotice';
+import EarlyReaderNotice from '@/components/book/Notice';
 import { Subscribe } from '@/components/book/Subscribe';
 import Footer from '@/components/Footer';
 import { PageSEO } from '@/components/SEO'

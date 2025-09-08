@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
-import EarlyReaderNotice from './EarlyReaderNotice';
+import EarlyReaderNotice from './Notice';
 
 const NavBar = ({
   items,

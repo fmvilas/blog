@@ -14,8 +14,13 @@ const HeroSection = () => {
                 Unlock your organization's potential through effective event-driven advocacy and actionable techniques.
               </p>
             </div>
-            <div className="flex flex-col gap-3 pt-8 sm:flex-row opacity-0 animate-fade-in animate-delay-300">
-              <Subscribe uid="e046de302e" formId="7915370" />
+            <div className="flex flex-col gap-3 opacity-0 animate-fade-in animate-delay-300">
+              <a href="https://fmvilas.kit.com/products/pre-order-the-shift-book" target="_blank" rel="noopener noreferrer" className="mt-4 mb-2 text-center bg-book-secondary text-white px-8 py-4 rounded-md hover:bg-book-secondary/90">
+                Pre-order now!
+              </a>
+              <span className="text-book-darkGray/80">
+                Not ready to buy yet? <a href="https://newsletter.fmvilas.me/" target="_blank" rel="noopener noreferrer" className="text-book-secondary hover:underline">Subscribe to the newsletter</a> to get notified when the book is available.
+              </span>
             </div>
           </div>
           <div className="mx-auto aspect-[4/5] overflow-hidden p-20 flex items-center justify-center opacity-0 animate-fade-in animate-delay-300">
