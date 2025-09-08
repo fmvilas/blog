@@ -1,7 +1,7 @@
 import NavBar from "@/components/book/NavBar";
 import Footer from "@/components/Footer";
 import Post from "@/components/ui/post";
-import content from "../markdown/shift.md?raw";
+import content from "../markdown/communication-style-guide.md?raw";
 
 function StyleGuide() {
   return (
