@@ -82,15 +82,6 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				book: {
-					primary: '#1D3557', // Berkeley Blue - primary brand color
-					secondary: '#5A375E', // Red Pantone - for buttons
-					lightPink: '#F1FAEE', // Honeydew - accent
-					lightGreen: '#A8DADC', // Non-photo Blue - accent
-					gold: '#457B9D', // Cerulean - accent
-					darkGray: '#1D3557', // Berkeley Blue for text
-					lightGray: '#F1FAEE' // Honeydew background
-				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

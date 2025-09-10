@@ -70,7 +70,7 @@ export const Subscribe = ({
             </div>
             <button
               data-element="submit"
-              className="formkit-submit w-full bg-secondary text-white font-medium py-3 px-6 rounded-md hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-colors xl:w-auto"
+              className="formkit-submit w-full bg-primary text-white hover:bg-primary/90 font-medium py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-colors xl:w-auto"
             >
               <div className="formkit-spinner">
                 <div></div>
