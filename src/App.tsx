@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Commune from "./pages/Commune";
 import Jobs from "./pages/Jobs";
+import SocialMediaContentManager from "./pages/SocialMediaContentManager";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/commune" element={<Commune />} />
           <Route path="/jobs" element={<Jobs />} />
+          <Route path="/jobs/social-media-and-content-manager" element={<SocialMediaContentManager />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
