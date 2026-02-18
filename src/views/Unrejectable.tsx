@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import siteMetadata from '@/data/siteMetadata';
 
 type Phase = 'down-lit' | 'down-flickering' | 'up-lighting' | 'up-lit';
 
@@ -173,24 +171,7 @@ export default function Unrejectable() {
 
   return (
     <>
-    <Helmet>
-      <title>Unrejectable — Be the one who chooses</title>
-      <meta name="robots" content="follow, index" />
-      <meta name="description" content="A course and private community for developers who are done uploading CVs into the void. Learn to build in public, demonstrate your thinking, and let your reputation make companies come to you." />
-      <meta name="keywords" content="developer career, build in public, personal brand, reputation, job hunting, tech career, software developer, career strategy, Fran Mendez, AsyncAPI" />
-      <meta property="og:url" content={`${siteMetadata.siteUrl}/unrejectable`} />
-      <meta property="og:type" content="website" />
-      <meta property="og:site_name" content={siteMetadata.title} />
-      <meta property="og:title" content="Unrejectable — Be the one who chooses" />
-      <meta property="og:description" content="A course and private community for developers who are done uploading CVs into the void. Learn to build in public, demonstrate your thinking, and let your reputation make companies come to you." />
-      <meta property="og:image" content={`${siteMetadata.siteUrl}/assets/images/opengraph-unrejectable.png`} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={siteMetadata.siteUrl} />
-      <meta name="twitter:title" content="Unrejectable — Be the one who chooses" />
-      <meta name="twitter:description" content="A course and private community for developers who are done uploading CVs into the void. Learn to build in public, demonstrate your thinking, and let your reputation make companies come to you." />
-      <meta name="twitter:image" content={`${siteMetadata.siteUrl}/assets/images/opengraph-unrejectable.png`} />
-    </Helmet>
-    <style dangerouslySetInnerHTML={{ __html: STYLES }} />
+<style dangerouslySetInnerHTML={{ __html: STYLES }} />
     <div
       style={{
         background: '#09090B',

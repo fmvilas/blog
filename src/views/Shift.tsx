@@ -7,8 +7,6 @@ import AudienceSection from "@/components/book/AudienceSection";
 import SubscribeSection from "@/components/book/SubscribeSection";
 import FaqSection from "@/components/book/FaqSection";
 import Footer from "@/components/book/Footer";
-import { PageSEO } from "@/components/SEO";
-import siteMetadata from "@/data/siteMetadata";
 
 const Shift = () => {
   // Reset scroll position when component mounts
@@ -21,12 +19,7 @@ const Shift = () => {
       <div className="absolute inset-0 opacity-10">
         <div className="absolute h-full w-full bg-[radial-gradient(#1D3557_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
       </div>
-      <PageSEO
-        path="/"
-        title={siteMetadata.book.title}
-        description={siteMetadata.book.description}
-      />
-      <NavBar
+<NavBar
         items={[
           { name: "Home", href: "/" },
           { name: "About", href: "#about" },

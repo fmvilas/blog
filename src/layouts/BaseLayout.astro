@@ -1,0 +1,67 @@
+---
+import '../index.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: string;
+  keywords?: string;
+  canonicalPath?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/static/images/opengraph.png',
+  ogType = 'website',
+  keywords,
+  canonicalPath = Astro.url.pathname,
+} = Astro.props;
+
+const siteUrl = 'https://www.fmvilas.me';
+const canonical = `${siteUrl}${canonicalPath}`;
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+const GA_ID = 'G-BXMJWVVSG3';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href={canonical} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="robots" content="follow, index" />
+
+    <!-- Open Graph -->
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Fran Méndez" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={siteUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Google Analytics -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

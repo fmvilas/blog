@@ -1,8 +1,6 @@
 import Notice from '@/components/Notice';
 import { Subscribe } from '@/components/Subscribe';
 import Footer from '@/components/Footer';
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
@@ -17,8 +15,7 @@ const Home = () => {
         <div className="absolute inset-0 opacity-10 z-0">
           <div className="absolute h-full w-full bg-[radial-gradient(#1D3557_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
         </div>
-        <PageSEO path="/" title={siteMetadata.title} description={siteMetadata.description} />
-        <div className="relative max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-6xl xl:px-0 z-10">
+<div className="relative max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-6xl xl:px-0 z-10">
           <header className="flex justify-between items-center mb-8">
             <div className="w-full flex">
               <img

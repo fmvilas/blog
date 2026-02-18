@@ -1,6 +1,5 @@
 import Notice from '@/components/Notice';
 import Footer from '@/components/Footer';
-import { PageSEO } from '@/components/SEO'
 import { Button } from "@/components/ui/button";
 import { MapPin, Euro, Briefcase, Mail, ArrowLeft } from 'lucide-react';
 
@@ -12,12 +11,7 @@ const SocialMediaContentManager = () => {
         <div className="absolute inset-0 opacity-10 z-0">
           <div className="absolute h-full w-full bg-[radial-gradient(#1D3557_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
         </div>
-        <PageSEO 
-          path="/jobs/social-media-and-content-manager" 
-          title="Social Media & Content Manager - Fran Méndez" 
-          description="Join me as my Social Media & Content Manager. 100% remote, full-time position managing content strategy, video production, and distribution." 
-        />
-        <div className="relative max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0 z-10">
+<div className="relative max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0 z-10">
           {/* Header */}
           <header className="flex justify-between items-center mb-8 md:mb-16">
             <a href="/" className="w-full flex">
