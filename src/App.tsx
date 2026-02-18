@@ -9,6 +9,7 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Commune from "./pages/Commune";
 import Jobs from "./pages/Jobs";
 import SocialMediaContentManager from "./pages/SocialMediaContentManager";
+import Unrejectable from "./pages/Unrejectable";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/commune" element={<Commune />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/jobs/social-media-and-content-manager" element={<SocialMediaContentManager />} />
+          <Route path="/unrejectable" element={<Unrejectable />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
