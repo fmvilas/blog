@@ -95,6 +95,14 @@ body {
     grid-template-columns: 1fr !important;
     gap: 48px !important;
   }
+  .author-no-video {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+  }
+  .author-no-video a {
+    max-width: 100% !important;
+  }
 }
 `;
 
@@ -681,6 +689,8 @@ export default function Unrejectable() {
             Your guide
           </p>
 
+          {/* TODO: Restore this layout once the video is ready */}
+          <div style={{ display: 'none' }}>
           <div className="author-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
 
             {/* Bio column */}
@@ -709,7 +719,7 @@ export default function Unrejectable() {
               </div>
 
               <p style={{ fontSize: '17px', color: '#A1A1AA', lineHeight: '1.75', marginBottom: '24px' }}>
-                Fran created <em style={{ color: '#FAFAFA' }}>AsyncAPI</em>, the open standard for defining asynchronous APIs — now adopted by thousands of companies worldwide including Slack, Salesforce, and SAP, and hosted under the Linux Foundation.
+                Fran created <em style={{ color: '#FAFAFA' }}>AsyncAPI</em>, the open standard for defining asynchronous APIs — now adopted by thousands of companies worldwide including GitHub, Citibank, NASA, Adidas, and Lego, and hosted under the Linux Foundation.
               </p>
               <p style={{ fontSize: '17px', color: '#A1A1AA', lineHeight: '1.75', marginBottom: '32px' }}>
                 He wrote <em style={{ color: '#FAFAFA' }}>Shift</em> on a conviction he earned the hard way: having the best technology doesn't matter if you can't get people on board. Unrejectable applies that same lesson to your career. Raw skill won't open doors. Reputation does.
@@ -812,6 +822,75 @@ export default function Unrejectable() {
             </div>
 
           </div>
+          </div>{/* end hidden video layout */}
+
+          {/* No-video author layout (active) */}
+          <div className="author-no-video" style={{ display: 'flex', gap: '48px', alignItems: 'flex-start' }}>
+
+            {/* Photo + identity */}
+            <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', width: '120px' }}>
+              <img
+                src="/fran.png"
+                alt="Fran Méndez"
+                style={{
+                  width: '120px',
+                  height: '120px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  border: '2px solid rgba(254,237,78,0.3)',
+                }}
+              />
+              <div style={{ textAlign: 'center' }}>
+                <p style={{ margin: 0, fontSize: '14px', fontWeight: '700', color: '#FAFAFA', letterSpacing: '-0.01em' }}>Fran Méndez</p>
+                <p style={{ margin: '4px 0 0', fontSize: '11px', color: '#52525B', lineHeight: '1.5' }}>Creator of AsyncAPI</p>
+              </div>
+            </div>
+
+            {/* Bio + book card */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p style={{ fontSize: '17px', color: '#A1A1AA', lineHeight: '1.75', marginBottom: '20px', marginTop: 0 }}>
+                Fran created <em style={{ color: '#FAFAFA' }}>AsyncAPI</em>, the open standard for defining asynchronous APIs — now adopted by thousands of companies worldwide including GitHub, NASA, Adidas, Lego, and Citibank, and hosted under the Linux Foundation.
+              </p>
+              <p style={{ fontSize: '17px', color: '#A1A1AA', lineHeight: '1.75', marginBottom: '32px' }}>
+                He wrote <em style={{ color: '#FAFAFA' }}>Shift</em> on a conviction he earned the hard way: having the best technology doesn't matter if you can't get people on board. Unrejectable applies that same lesson to your career. Raw skill won't open doors. Reputation does.
+              </p>
+
+              <a
+                href="https://leadtheshift.co"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '16px',
+                  padding: '16px 20px',
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  borderRadius: '10px',
+                  textDecoration: 'none',
+                  transition: 'border-color 0.2s',
+                  maxWidth: '400px',
+                }}
+                onMouseOver={e => (e.currentTarget.style.borderColor = 'rgba(254,237,78,0.25)')}
+                onMouseOut={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)')}
+              >
+                <div style={{ width: '36px', height: '44px', background: '#FEED4E', borderRadius: '4px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="#09090B">
+                    <path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-1 17H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V9h10v2zm0-4H7V5h10v2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p style={{ margin: 0, fontSize: '14px', fontWeight: '700', color: '#FAFAFA', letterSpacing: '-0.01em' }}>Shift</p>
+                  <p style={{ margin: 0, fontSize: '12px', color: '#52525B', marginTop: '2px' }}>How to drive architectural change when great tech isn't enough</p>
+                </div>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#3F3F46" strokeWidth="2" style={{ marginLeft: 'auto', flexShrink: 0 }}>
+                  <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+              </a>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
