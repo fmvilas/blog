@@ -342,8 +342,7 @@ export default function Unrejectable() {
               marginBottom: '56px',
             }}
           >
-            Stop being a ticket in a queue. Build your own front door and create
-            the leverage to bypass gatekeepers entirely.
+            Most developers apply for jobs. This course teaches you how to make companies come to you. Build in public, demonstrate your thinking, and let your reputation do the asking.
           </p>
 
           {/* CTA */}
