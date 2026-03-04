@@ -247,7 +247,7 @@ export default function Unrejectable() {
                 boxShadow: '0 0 6px rgba(34,197,94,0.8)',
               }}
             />
-            Course &amp; Private Community · Coming Soon
+            Private Community · Coming Soon
           </div>
 
           {/* Neon icon — thumbsdown → thumbsup */}
@@ -342,7 +342,7 @@ export default function Unrejectable() {
               marginBottom: '56px',
             }}
           >
-            Most developers apply for jobs. This course teaches you how to make companies come to you. Build in public, demonstrate your thinking, and let your reputation do the asking.
+            Most developers apply for jobs. In the Unrejectable community, you'll learn how to make companies come to you. Build in public, demonstrate your thinking, and let your reputation do the asking.
           </p>
 
           {/* CTA */}
@@ -931,7 +931,7 @@ export default function Unrejectable() {
               fontSize: '15px',
             }}
           >
-            No spam. One email when the course and community are ready.
+            No spam. One email when the community is ready.
           </p>
 
           <form
