@@ -88,7 +88,12 @@ export default function SendIt() {
         </div>
 
         <p className="si-form-note">Where should I send it?</p>
-        <Subscribe uid={KIT_UID} formId={KIT_FORM_ID} buttonText="Send it to me" />
+        <Subscribe
+          uid={KIT_UID}
+          formId={KIT_FORM_ID}
+          buttonText="Send it to me"
+          successMessage="Check your email. The link is in it."
+        />
 
         <div className="u-sig" style={{ marginTop: '48px' }}>
           Fran Méndez — created AsyncAPI, now building{' '}
