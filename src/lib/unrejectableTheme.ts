@@ -203,6 +203,25 @@ body {
 }
 .u .formkit-submit:hover { opacity: 0.9 !important; transform: translateY(-1px); }
 .u .formkit-alert { color: #EF4444; font-size: 14px; }
+.u .formkit-submit:disabled { opacity: 0.55; cursor: default; transform: none; }
+
+/* States rendered by Subscribe when useKitScript={false} */
+.u .subscribe-success {
+  border: 1px solid rgba(254,237,78,0.3);
+  background: rgba(254,237,78,0.05);
+  border-radius: 10px;
+  padding: 18px 22px;
+  color: var(--u-text);
+  font-size: 16px;
+  font-weight: 500;
+}
+.u .subscribe-error {
+  color: #F87171;
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.u .subscribe-error a { color: #F87171; text-decoration: underline; }
 
 @media (max-width: 680px) {
   .u { font-size: 16px; }

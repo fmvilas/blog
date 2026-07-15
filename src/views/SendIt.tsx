@@ -93,6 +93,7 @@ export default function SendIt() {
           formId={KIT_FORM_ID}
           buttonText="Send it to me"
           successMessage="Check your email. The link is in it."
+          useKitScript={false}
         />
 
         <div className="u-sig" style={{ marginTop: '48px' }}>

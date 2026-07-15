@@ -1,18 +1,31 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Subscribe = ({
   alignment = "left",
   uid,
   formId,
   buttonText = "Subscribe",
-  successMessage = "Success! Now check your email to confirm your subscription."
+  successMessage = "Success! Now check your email to confirm your subscription.",
+  useKitScript = true
 }: {
   alignment?: "left" | "center",
   uid: string,
   formId: string,
   buttonText?: string,
-  successMessage?: string
+  successMessage?: string,
+  /**
+   * Kit's ck.5.js is what fires the Creator Network recommendations modal after
+   * a successful subscribe. Recommendations can only be switched off account-wide
+   * in Kit, so the only way to suppress them on one page is to not load the script
+   * there and submit by hand.
+   *
+   * Set false to opt out: the form then POSTs via fetch and renders its own
+   * success state. Note the endpoint's response is what Kit's own script talks to,
+   * not a documented API — so failures surface visibly rather than silently.
+   */
+  useKitScript?: boolean
 }) => {
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   // Kit's ck.5.js reads this blob on submit. Built as an object rather than a
   // hand-edited JSON string so successMessage can vary per form without anyone
@@ -42,19 +55,53 @@ export const Subscribe = ({
   };
 
   useEffect(() => {
+    if (!useKitScript) return;
+
     // Load Kit script
     const script = document.createElement('script');
     script.src = 'https://f.convertkit.com/ckjs/ck.5.js';
     script.async = true;
-    
+
     // Also add to body for initialization
     document.body.appendChild(script);
 
     // Cleanup
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) document.body.removeChild(script);
     };
-  }, []);
+  }, [useKitScript]);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (status === 'submitting') return;
+    setStatus('submitting');
+
+    try {
+      const response = await fetch(`https://app.kit.com/forms/${formId}/subscriptions`, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(event.currentTarget)
+      });
+      // Deliberately trusting the HTTP status rather than the body shape — the
+      // JSON payload isn't a contract and could change without warning.
+      if (!response.ok) throw new Error(`Kit responded ${response.status}`);
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  if (!useKitScript && status === 'success') {
+    return (
+      <div
+        className={`flex flex-col w-full ${alignment === "center" ? "items-center" : "items-start"}`}
+        role="status"
+        aria-live="polite"
+      >
+        <p className="subscribe-success">{successMessage}</p>
+      </div>
+    );
+  }
 
   return (
     <div className={`flex flex-col w-full ${alignment === "center" ? "items-center" : "items-start"} opacity-0 animate-slide-up`}>
@@ -62,6 +109,7 @@ export const Subscribe = ({
         action={`https://app.kit.com/forms/${formId}/subscriptions`}
         className="seva-form formkit-form w-full"
         method="post"
+        onSubmit={useKitScript ? undefined : handleSubmit}
         data-sv-form={formId}
         data-uid={uid}
         data-format="inline"
@@ -75,6 +123,12 @@ export const Subscribe = ({
             data-element="errors"
             data-group="alert"
           ></ul>
+          {!useKitScript && status === 'error' && (
+            <p className="subscribe-error" role="alert">
+              That didn&apos;t go through. Try again, or just email me at{' '}
+              <a href="mailto:fran@fmvilas.me">fran@fmvilas.me</a> and I&apos;ll send it over.
+            </p>
+          )}
           <div
             data-element="fields"
             data-stacked="false"
@@ -101,6 +155,7 @@ export const Subscribe = ({
             </div>
             <button
               data-element="submit"
+              disabled={!useKitScript && status === 'submitting'}
               className="formkit-submit w-full bg-primary text-white hover:bg-primary/90 font-medium py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-colors xl:w-auto"
             >
               <div className="formkit-spinner">
@@ -108,7 +163,9 @@ export const Subscribe = ({
                 <div></div>
                 <div></div>
               </div>
-              <span>{buttonText}</span>
+              <span>
+                {!useKitScript && status === 'submitting' ? 'Sending…' : buttonText}
+              </span>
             </button>
           </div>
         </div>
