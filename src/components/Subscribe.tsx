@@ -3,11 +3,13 @@ import { useEffect } from 'react';
 export const Subscribe = ({
   alignment = "left",
   uid,
-  formId
+  formId,
+  buttonText = "Subscribe"
 }: {
   alignment?: "left" | "center",
   uid: string,
-  formId: string
+  formId: string,
+  buttonText?: string
 }) => {
 
   useEffect(() => {
@@ -77,7 +79,7 @@ export const Subscribe = ({
                 <div></div>
                 <div></div>
               </div>
-              <span>Subscribe</span>
+              <span>{buttonText}</span>
             </button>
           </div>
         </div>
