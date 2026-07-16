@@ -391,7 +391,7 @@ const Home = () => {
               textTransform: 'uppercase' as const, color: '#A1A1AA',
               marginBottom: '32px', fontWeight: '700',
             }}>
-              For engineers nobody has heard of
+              If your work is better than your options
             </p>
 
             <div style={{

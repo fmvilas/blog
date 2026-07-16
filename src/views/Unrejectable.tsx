@@ -386,8 +386,7 @@ export default function Unrejectable() {
                   marginBottom: "20px",
                 }}
               >
-                You&apos;ve been a good engineer for years and almost nobody
-                knows.
+                Your work is better than your options.
               </p>
               <p
                 style={{
@@ -398,8 +397,9 @@ export default function Unrejectable() {
                   marginBottom: "56px",
                 }}
               >
-                Four weeks, eight of you, and me, on the only part that&apos;s
-                actually hard: telling anyone.
+                That gap has a cause and it isn&apos;t the work. Four weeks,
+                eight of you, and me, on the only part that&apos;s actually hard:
+                telling anyone what you&apos;ve built.
               </p>
 
               {/* CTA */}
