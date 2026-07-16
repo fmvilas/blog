@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Nav } from '@/components/Nav';
 
 const KIT_FORM_ID = '8024741';
 const KIT_UID = '8e4cf78d34';
@@ -57,10 +58,6 @@ body {
 
 .social-icon { color: #3F3F46; transition: color 0.2s; }
 .social-icon:hover { color: ${SAGE}; }
-
-@media (max-width: 640px) {
-  .nav-link { display: none !important; }
-}
 
 @media (max-width: 768px) {
   .book-grid { grid-template-columns: 1fr !important; }
@@ -172,83 +169,7 @@ const Home = () => {
       }}>
 
         {/* ── Nav ─────────────────────────────────────────────── */}
-        <nav style={{
-          position: 'sticky', top: 0, zIndex: 50,
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          background: 'rgba(9,9,11,0.88)',
-        }}>
-          <div style={{
-            maxWidth: '1100px', margin: '0 auto', padding: '0 2rem',
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px',
-          }}>
-            {/* Identity */}
-            <a
-              href="/"
-              style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
-            >
-              <img
-                src="/static/images/portrait.png"
-                alt="Fran Méndez"
-                style={{
-                  width: '32px', height: '32px', borderRadius: '50%',
-                  objectFit: 'cover', objectPosition: 'top',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                }}
-              />
-              <span style={{ fontSize: '14px', fontWeight: '600', color: '#FAFAFA', letterSpacing: '-0.01em' }}>
-                Fran Méndez
-              </span>
-            </a>
-
-            {/* Nav links + CTA */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <a
-                href="https://usecommune.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="nav-link"
-                style={{
-                  fontSize: '13px', fontWeight: '500', color: '#71717A',
-                  textDecoration: 'none', padding: '6px 12px', borderRadius: '6px',
-                  transition: 'color 0.2s',
-                }}
-                onMouseOver={e => (e.currentTarget.style.color = '#FAFAFA')}
-                onMouseOut={e => (e.currentTarget.style.color = '#71717A')}
-              >
-                Commune
-              </a>
-              <button
-                onClick={scrollToNewsletter}
-                className="nav-link"
-                style={{
-                  fontSize: '13px', fontWeight: '500', color: '#71717A',
-                  background: 'none', border: 'none', cursor: 'pointer',
-                  padding: '6px 12px', borderRadius: '6px',
-                  transition: 'color 0.2s', fontFamily: 'inherit',
-                }}
-                onMouseOver={e => (e.currentTarget.style.color = '#FAFAFA')}
-                onMouseOut={e => (e.currentTarget.style.color = '#71717A')}
-              >
-                Newsletter
-              </button>
-              <a
-                href="https://leadtheshift.co"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  background: SAGE, color: BG,
-                  padding: '8px 16px', borderRadius: '8px',
-                  fontSize: '13px', fontWeight: '700', textDecoration: 'none',
-                  letterSpacing: '-0.01em', marginLeft: '4px',
-                }}
-              >
-                Get Shift →
-              </a>
-            </div>
-          </div>
-        </nav>
+        <Nav onNewsletterClick={scrollToNewsletter} />
 
         {/* ── Hero ────────────────────────────────────────────── */}
         <section style={{ padding: 'clamp(45px, 8vw, 112px) 2rem', position: 'relative', overflow: 'hidden' }}>
@@ -456,6 +377,58 @@ const Home = () => {
                   onMouseOut={e => (e.currentTarget.style.borderColor = 'rgba(140,196,126,0.3)')}
                 >
                   usecommune.com <span aria-hidden>↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Unrejectable ────────────────────────────────────── */}
+        <section style={{ padding: 'clamp(80px, 10vw, 112px) 2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+            <p style={{
+              fontSize: '11px', letterSpacing: '0.15em',
+              textTransform: 'uppercase' as const, color: '#A1A1AA',
+              marginBottom: '32px', fontWeight: '700',
+            }}>
+              For engineers nobody has heard of
+            </p>
+
+            <div style={{
+              display: 'flex', alignItems: 'flex-start',
+              gap: '48px', flexWrap: 'wrap',
+            }}>
+              <div style={{ flex: '0 0 auto', paddingTop: '4px' }}>
+                <span style={{
+                  fontSize: '32px', fontWeight: '900',
+                  letterSpacing: '-0.04em', color: '#FEED4E',
+                  lineHeight: '1', display: 'block',
+                }}>
+                  Un&#8209;
+                  <br />
+                  rejectable.
+                </span>
+              </div>
+              <div style={{ flex: '1 1 320px', paddingTop: '4px' }}>
+                <p style={{ fontSize: '17px', color: '#A1A1AA', lineHeight: '1.75', marginBottom: '24px', marginTop: 0 }}>
+                  I haven&apos;t applied for a job since 2017. Not because I&apos;m special, but
+                  because enough people had heard of me that I never had to. Four weeks, eight
+                  engineers, and me, on the only part that&apos;s actually hard: telling anyone
+                  what you&apos;ve built.
+                </p>
+                <a
+                  href="/unrejectable"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '8px',
+                    color: '#FEED4E', fontSize: '15px', fontWeight: '600',
+                    textDecoration: 'none', letterSpacing: '-0.01em',
+                    borderBottom: '1px solid rgba(254,237,78,0.3)', paddingBottom: '2px',
+                    transition: 'border-color 0.2s',
+                  }}
+                  onMouseOver={e => (e.currentTarget.style.borderColor = 'rgba(254,237,78,0.7)')}
+                  onMouseOut={e => (e.currentTarget.style.borderColor = 'rgba(254,237,78,0.3)')}
+                >
+                  See what it is <span aria-hidden>→</span>
                 </a>
               </div>
             </div>

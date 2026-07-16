@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Nav } from "@/components/Nav";
 
 type Phase = "down-lit" | "down-flickering" | "up-lighting" | "up-lit";
 
@@ -78,7 +79,7 @@ body {
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
     align-items: flex-start !important;
-    min-height: 100svh !important;
+    min-height: calc(100svh - 64px) !important;
   }
   .hero-inner {
     padding-top: 40px;
@@ -243,11 +244,13 @@ export default function Unrejectable() {
           overflowX: "hidden",
         }}
       >
+        <Nav accent="#FEED4E" />
+
         {/* ── Hero ─────────────────────────────────────────────────── */}
         <section
           className="hero-section"
           style={{
-            minHeight: "100vh",
+            minHeight: "calc(100vh - 64px)",
             display: "flex",
             alignItems: "center",
             position: "relative",
