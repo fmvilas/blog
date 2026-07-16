@@ -4,7 +4,7 @@ import { UNREJECTABLE_THEME } from '@/lib/unrejectableTheme';
 // Freebie 1, capture side. The essay it delivers lives at
 // /unrejectable/free/1/being-found.
 // Kept separate from the Unrejectable waitlist form so the two signals stay
-// readable: "I want the free essay" vs "I want the course".
+// readable: "I want the free essay" vs "I want a place in a cohort".
 // Tags on subscribe: magnet:the-list (21209432).
 // No after_subscribe redirect on purpose — the link is delivered in the first
 // sequence email, which is what makes the address real.

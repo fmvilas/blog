@@ -146,6 +146,27 @@ const steps = [
   },
 ];
 
+const shape = [
+  {
+    label: 'Weeks 1—4',
+    name: 'Two hours a week',
+    description:
+      "One call, the whole group, every week. You bring what you're sitting on and what you didn't post. Nobody watches a video.",
+  },
+  {
+    label: 'After that',
+    name: 'Monthly, same group',
+    description:
+      "Four weeks proves nothing. The person who changed my career showed up years in, so we keep meeting for a while. I drop in. You keep going with each other.",
+  },
+  {
+    label: 'Size',
+    name: 'Eight people',
+    description:
+      "Small enough that you can't quietly stop and hope nobody noticed. That's not a limitation. That's the entire mechanism.",
+  },
+];
+
 const notFor = [
   {
     label: "You want the reputation more than the work",
@@ -355,18 +376,27 @@ export default function Unrejectable() {
               {/* Sub-headline */}
               <p
                 style={{
+                  fontSize: "20px",
+                  color: "#FAFAFA",
+                  maxWidth: "520px",
+                  lineHeight: "1.6",
+                  marginBottom: "20px",
+                }}
+              >
+                You&apos;ve been a good engineer for years and almost nobody
+                knows.
+              </p>
+              <p
+                style={{
                   fontSize: "18px",
                   color: "#A1A1AA",
-                  maxWidth: "500px",
-                  lineHeight: "1.75",
+                  maxWidth: "520px",
+                  lineHeight: "1.7",
                   marginBottom: "56px",
                 }}
               >
-                You&apos;ve been good at this for years and almost nobody knows.
-                Somewhere on your machine is a folder with real work in it that
-                no human being has ever seen run. This is a course about the
-                only part that&apos;s actually hard: talking about it, when
-                every way of doing that feels like begging.
+                Four weeks, eight of you, and me, on the only part that&apos;s
+                actually hard: telling anyone.
               </p>
 
               {/* CTA */}
@@ -396,7 +426,7 @@ export default function Unrejectable() {
                   e.currentTarget.style.opacity = "1";
                 }}
               >
-                Notify me when it's ready
+                I want in
                 <span aria-hidden>→</span>
               </button>
             </div>
@@ -435,7 +465,7 @@ export default function Unrejectable() {
                 fontWeight: "700",
               }}
             >
-              The Enemy
+              What you tell yourself
             </p>
             <h2
               style={{
@@ -566,6 +596,121 @@ export default function Unrejectable() {
           </div>
         </section>
 
+        {/* ── What it is ───────────────────────────────────────────── */}
+        <section
+          className="section-pad"
+          style={{
+            padding: "120px 2rem",
+            borderTop: "1px solid rgba(255,255,255,0.05)",
+          }}
+        >
+          <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+            <p
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase" as const,
+                color: "#FEED4E",
+                marginBottom: "20px",
+                fontWeight: "700",
+              }}
+            >
+              What it is
+            </p>
+            <h2
+              style={{
+                fontSize: "clamp(36px, 6vw, 72px)",
+                fontWeight: "900",
+                letterSpacing: "-0.04em",
+                lineHeight: "0.95",
+                marginBottom: "56px",
+              }}
+            >
+              Four weeks.
+              <br />
+              Eight of you. Me.
+            </h2>
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                gap: "1px",
+                background: "rgba(255,255,255,0.05)",
+                borderRadius: "16px",
+                overflow: "hidden",
+                marginBottom: "48px",
+              }}
+            >
+              {shape.map((s, i) => (
+                <div key={i} style={{ background: "#09090B", padding: "40px 36px" }}>
+                  <div
+                    style={{
+                      fontSize: "11px",
+                      fontWeight: "700",
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase" as const,
+                      color: "#FEED4E",
+                      marginBottom: "20px",
+                      fontFamily: "monospace",
+                    }}
+                  >
+                    {s.label}
+                  </div>
+                  <h3
+                    style={{
+                      fontSize: "28px",
+                      fontWeight: "900",
+                      letterSpacing: "-0.03em",
+                      marginBottom: "14px",
+                      lineHeight: "1.05",
+                    }}
+                  >
+                    {s.name}
+                  </h3>
+                  <p style={{ color: "#A1A1AA", lineHeight: "1.7", fontSize: "15px" }}>
+                    {s.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div
+              style={{
+                color: "#A1A1AA",
+                fontSize: "17px",
+                lineHeight: "1.8",
+                maxWidth: "680px",
+                margin: "0 auto",
+                textAlign: "center",
+              }}
+            >
+              <p style={{ marginBottom: "24px" }}>
+                It isn&apos;t a course and it won&apos;t become one. Everything a
+                course could teach you is already written down, and it&apos;s
+                free:{" "}
+                <a
+                  href="/unrejectable/free/1/send-it"
+                  style={{
+                    color: "#FEED4E",
+                    textDecoration: "none",
+                    borderBottom: "1px solid rgba(254,237,78,0.3)",
+                  }}
+                >
+                  everything I know about being found
+                </a>
+                . You are not stuck because you don&apos;t know what a blog is.
+              </p>
+              <p style={{ margin: 0 }}>
+                You&apos;re stuck because doing it feels like begging, and that
+                doesn&apos;t get fixed by watching a video of me. It gets fixed
+                in a room where six other people are doing it too and nobody
+                dies.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* ── Protocol ─────────────────────────────────────────────── */}
         <section
           className="section-pad"
@@ -585,7 +730,7 @@ export default function Unrejectable() {
                 fontWeight: "700",
               }}
             >
-              The Protocol
+              What you&apos;d actually do
             </p>
             <h2
               style={{
@@ -673,6 +818,24 @@ export default function Unrejectable() {
                 </div>
               ))}
             </div>
+
+            <p
+              style={{
+                color: "#A1A1AA",
+                fontSize: "19px",
+                lineHeight: "1.7",
+                maxWidth: "620px",
+                margin: "56px auto 0",
+                textAlign: "center",
+              }}
+            >
+              All of it on{" "}
+              <span style={{ color: "#FAFAFA" }}>your own work</span>. The thing
+              you built years ago and never mentioned to anyone, or the one
+              that&apos;s still just an idea in your head. Not exercises, not a
+              case study, not my projects. Yours, in public, starting in week
+              one.
+            </p>
           </div>
         </section>
 
@@ -698,37 +861,57 @@ export default function Unrejectable() {
                 fontWeight: "700",
               }}
             >
-              The Mission
+              What it gets you
             </p>
             <h2
               style={{
-                fontSize: "clamp(48px, 9vw, 100px)",
+                fontSize: "clamp(48px, 9vw, 96px)",
                 fontWeight: "900",
                 letterSpacing: "-0.04em",
                 lineHeight: "0.92",
                 marginBottom: "40px",
               }}
             >
-              Build your
+              People have
               <br />
-              own front door.
+              heard of you.
             </h2>
-            <p
+            <div
               style={{
                 color: "#A1A1AA",
-                maxWidth: "480px",
+                maxWidth: "560px",
                 margin: "0 auto",
-                lineHeight: "1.75",
+                lineHeight: "1.8",
                 fontSize: "17px",
               }}
             >
-              Stop walking into interviews to be tested. Walk into conversations
-              to see if{" "}
-              <em style={{ color: "#A1A1AA" }}>
-                their problems are interesting enough
-              </em>{" "}
-              for you to solve.
-            </p>
+              <p style={{ marginBottom: "24px" }}>
+                That&apos;s the whole thing. Everything else falls out of it.
+              </p>
+              <p style={{ marginBottom: "24px" }}>
+                When you talk to a company, they already know what you can do,
+                so you aren&apos;t there to be tested. You&apos;re there to work
+                out whether their problem is interesting enough to be worth your
+                time. When a layoff round comes, and one will, you&apos;re not
+                starting from a blank PDF and nine months of savings. When you
+                want something, you ask people who already know your name.
+              </p>
+              <p style={{ marginBottom: "24px" }}>
+                <span style={{ color: "#FAFAFA" }}>
+                  I haven&apos;t applied for a job since 2017.
+                </span>{" "}
+                Not because I&apos;m special. Because enough people had heard of
+                me that I never had to.
+              </p>
+              <p style={{ margin: 0 }}>
+                <span style={{ color: "#FAFAFA" }}>
+                  There is no reason you can&apos;t say the same sentence in a
+                  few years.
+                </span>{" "}
+                None of it was talent. I was worse at this than you are, and I
+                only started because a room of fifteen people let me.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -751,7 +934,7 @@ export default function Unrejectable() {
                 fontWeight: "700",
               }}
             >
-              Your guide
+              Who&apos;s running this
             </p>
 
             {/* TODO: Restore this layout once the video is ready */}
@@ -1168,81 +1351,6 @@ export default function Unrejectable() {
           </div>
         </section>
 
-        {/* ── The honest bit ───────────────────────────────────────── */}
-        <section
-          className="section-pad"
-          style={{
-            padding: "120px 2rem",
-            borderTop: "1px solid rgba(255,255,255,0.05)",
-          }}
-        >
-          <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-            <p
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase" as const,
-                color: "#A1A1AA",
-                marginBottom: "24px",
-                fontWeight: "700",
-              }}
-            >
-              The honest bit
-            </p>
-            <h2
-              style={{
-                fontSize: "clamp(36px, 6vw, 68px)",
-                fontWeight: "900",
-                letterSpacing: "-0.04em",
-                lineHeight: "0.95",
-                marginBottom: "40px",
-              }}
-            >
-              There is no course yet.
-            </h2>
-            <div
-              style={{ color: "#A1A1AA", fontSize: "17px", lineHeight: "1.8" }}
-            >
-              <p style={{ marginBottom: "24px" }}>
-                I&apos;m not going to pretend otherwise. You&apos;re reading a
-                page for something that doesn&apos;t exist.
-              </p>
-              <p style={{ marginBottom: "24px" }}>
-                It exists as a page because I wrote a list of things I&apos;d
-                tell any engineer who wants to stop being invisible, and item 7
-                on that list says{" "}
-                <em style={{ color: "#A1A1AA" }}>
-                  build a landing page for the idea before the product exists
-                </em>
-                . It gauges interest, and it forces you to name the thing.
-                I&apos;d be a hypocrite to write that down and then not do it.
-              </p>
-              <p style={{ marginBottom: "24px" }}>
-                So this page is the protocol, run on myself, in public, where
-                you can watch it. Saying it early is the whole point. If nobody
-                wants this, I&apos;d rather find out now than after six months
-                of building it.
-              </p>
-              <p style={{ margin: 0 }}>
-                In the meantime, everything I know about this is written down
-                and it&apos;s free:{" "}
-                <a
-                  href="/unrejectable/free/1/send-it"
-                  style={{
-                    color: "#FEED4E",
-                    textDecoration: "none",
-                    borderBottom: "1px solid rgba(254,237,78,0.3)",
-                  }}
-                >
-                  Everything I know about being found
-                </a>
-                . Around twenty concrete things, and the three you don&apos;t
-                have to do.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* ── Who it's not for ─────────────────────────────────────── */}
         <section
           className="section-pad"
@@ -1357,7 +1465,7 @@ export default function Unrejectable() {
                 fontWeight: "700",
               }}
             >
-              Join the waitlist
+              The first cohort
             </p>
             <h2
               style={{
@@ -1368,7 +1476,7 @@ export default function Unrejectable() {
                 marginBottom: "16px",
               }}
             >
-              Get notified when it opens.
+              Tell me you want in.
             </h2>
             <p
               style={{
@@ -1378,8 +1486,9 @@ export default function Unrejectable() {
                 fontSize: "15px",
               }}
             >
-              Tell me you want this and I&apos;ll build it. Enough of you and it
-              happens.
+              It runs the moment there are enough of you, and enough is about
+              eight people. So you&apos;re not a rounding error on this list.
+              You&apos;re roughly an eighth of whether it happens at all.
             </p>
 
             <form

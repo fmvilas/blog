@@ -243,11 +243,12 @@ export default function BeingFound() {
         <section className="u-sec">
           <a className="bf-banner" href="/unrejectable">
             <div className="bf-banner-k">Unrejectable</div>
-            <p className="bf-banner-h">The embarrassing part is the entire course.</p>
+            <p className="bf-banner-h">The embarrassing part is the whole thing.</p>
             <p className="bf-banner-p">
-              Everything above is the what, and you already knew most of it. I&apos;m building the
-              other thing: doing it anyway, for years, when every single step feels like begging. It
-              doesn&apos;t exist yet, and the page explains why that&apos;s deliberate.
+              Everything above is the what, and you already knew most of it. Nobody was ever stuck
+              for lack of knowing what a blog is. Four weeks, a small group, and me, on the part
+              that actually stops you. It hasn&apos;t run yet, and the page explains why
+              that&apos;s deliberate.
             </p>
             <span className="bf-banner-cta">
               See what it is <span className="bf-banner-arrow" aria-hidden>→</span>
