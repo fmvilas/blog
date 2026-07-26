@@ -451,7 +451,7 @@ export default function Unrejectable() {
                   e.currentTarget.style.opacity = "1";
                 }}
               >
-                Claim one of 8 spots
+                Claim your spot · €500
                 <span aria-hidden>→</span>
               </a>
             </div>
@@ -1571,124 +1571,126 @@ export default function Unrejectable() {
                 </button>
               </div>
             ) : (
-            <form
-              action={`https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`}
-              className="seva-form formkit-form"
-              method="post"
-              data-sv-form={KIT_FORM_ID}
-              data-uid={KIT_UID}
-              data-format="inline"
-              data-version="5"
-              data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Awesome! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":false,"url":"https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
-              style={{ width: "100%", textAlign: "left" }}
-            >
-              <ul
-                className="formkit-alert formkit-alert-error"
-                data-element="errors"
-                data-group="alert"
-                style={{
-                  listStyle: "none",
-                  padding: 0,
-                  margin: "0 0 16px 0",
-                  color: "#EF4444",
-                  fontSize: "14px",
-                }}
-              />
-              <div
-                data-element="fields"
-                className="seva-fields formkit-fields"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "12px",
-                }}
+              <form
+                action={`https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`}
+                className="seva-form formkit-form"
+                method="post"
+                data-sv-form={KIT_FORM_ID}
+                data-uid={KIT_UID}
+                data-format="inline"
+                data-version="5"
+                data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Awesome! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":false,"url":"https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
+                style={{ width: "100%", textAlign: "left" }}
               >
-                <input
-                  ref={firstNameRef}
-                  name="fields[first_name]"
-                  aria-label="First Name"
-                  placeholder="First name"
-                  type="text"
+                <ul
+                  className="formkit-alert formkit-alert-error"
+                  data-element="errors"
+                  data-group="alert"
                   style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    borderRadius: "8px",
-                    padding: "15px 18px",
-                    fontSize: "15px",
-                    color: "#FAFAFA",
-                    outline: "none",
-                    width: "100%",
-                    boxSizing: "border-box" as const,
-                    transition: "border-color 0.2s",
+                    listStyle: "none",
+                    padding: 0,
+                    margin: "0 0 16px 0",
+                    color: "#EF4444",
+                    fontSize: "14px",
                   }}
-                  onFocus={(e) =>
-                    (e.currentTarget.style.borderColor = "rgba(254,237,78,0.4)")
-                  }
-                  onBlur={(e) =>
-                    (e.currentTarget.style.borderColor =
-                      "rgba(255,255,255,0.08)")
-                  }
                 />
-                <input
-                  name="email_address"
-                  aria-label="Email Address"
-                  placeholder="Email address"
-                  type="email"
-                  required
+                <div
+                  data-element="fields"
+                  className="seva-fields formkit-fields"
                   style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    borderRadius: "8px",
-                    padding: "15px 18px",
-                    fontSize: "15px",
-                    color: "#FAFAFA",
-                    outline: "none",
-                    width: "100%",
-                    boxSizing: "border-box" as const,
-                    transition: "border-color 0.2s",
-                  }}
-                  onFocus={(e) =>
-                    (e.currentTarget.style.borderColor = "rgba(254,237,78,0.4)")
-                  }
-                  onBlur={(e) =>
-                    (e.currentTarget.style.borderColor =
-                      "rgba(255,255,255,0.08)")
-                  }
-                />
-                <button
-                  data-element="submit"
-                  type="submit"
-                  style={{
-                    background: "#FEED4E",
-                    color: "#09090B",
-                    border: "none",
-                    borderRadius: "8px",
-                    padding: "16px",
-                    fontSize: "15px",
-                    fontWeight: "700",
-                    cursor: "pointer",
-                    width: "100%",
-                    letterSpacing: "-0.01em",
-                    transition: "opacity 0.15s, transform 0.15s",
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.opacity = "0.88";
-                    e.currentTarget.style.transform = "translateY(-1px)";
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.opacity = "1";
-                    e.currentTarget.style.transform = "translateY(0)";
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "12px",
                   }}
                 >
-                  <div className="formkit-spinner">
-                    <div />
-                    <div />
-                    <div />
-                  </div>
-                  <span>Keep me posted</span>
-                </button>
-              </div>
-            </form>
+                  <input
+                    ref={firstNameRef}
+                    name="fields[first_name]"
+                    aria-label="First Name"
+                    placeholder="First name"
+                    type="text"
+                    style={{
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "8px",
+                      padding: "15px 18px",
+                      fontSize: "15px",
+                      color: "#FAFAFA",
+                      outline: "none",
+                      width: "100%",
+                      boxSizing: "border-box" as const,
+                      transition: "border-color 0.2s",
+                    }}
+                    onFocus={(e) =>
+                      (e.currentTarget.style.borderColor =
+                        "rgba(254,237,78,0.4)")
+                    }
+                    onBlur={(e) =>
+                      (e.currentTarget.style.borderColor =
+                        "rgba(255,255,255,0.08)")
+                    }
+                  />
+                  <input
+                    name="email_address"
+                    aria-label="Email Address"
+                    placeholder="Email address"
+                    type="email"
+                    required
+                    style={{
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "8px",
+                      padding: "15px 18px",
+                      fontSize: "15px",
+                      color: "#FAFAFA",
+                      outline: "none",
+                      width: "100%",
+                      boxSizing: "border-box" as const,
+                      transition: "border-color 0.2s",
+                    }}
+                    onFocus={(e) =>
+                      (e.currentTarget.style.borderColor =
+                        "rgba(254,237,78,0.4)")
+                    }
+                    onBlur={(e) =>
+                      (e.currentTarget.style.borderColor =
+                        "rgba(255,255,255,0.08)")
+                    }
+                  />
+                  <button
+                    data-element="submit"
+                    type="submit"
+                    style={{
+                      background: "#FEED4E",
+                      color: "#09090B",
+                      border: "none",
+                      borderRadius: "8px",
+                      padding: "16px",
+                      fontSize: "15px",
+                      fontWeight: "700",
+                      cursor: "pointer",
+                      width: "100%",
+                      letterSpacing: "-0.01em",
+                      transition: "opacity 0.15s, transform 0.15s",
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.opacity = "0.88";
+                      e.currentTarget.style.transform = "translateY(-1px)";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.opacity = "1";
+                      e.currentTarget.style.transform = "translateY(0)";
+                    }}
+                  >
+                    <div className="formkit-spinner">
+                      <div />
+                      <div />
+                      <div />
+                    </div>
+                    <span>Keep me posted</span>
+                  </button>
+                </div>
+              </form>
             )}
           </div>
         </section>
