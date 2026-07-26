@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Nav } from "@/components/Nav";
 
 type Phase = "down-lit" | "down-flickering" | "up-lighting" | "up-lit";
@@ -143,28 +143,28 @@ const steps = [
     number: "04",
     name: "Open",
     description:
-      "A way in, and someone behind it. This is the only line between you and the people you can't stand on this website.",
+      "A way in, and someone real behind it. The hollow accounts you can't stand have the doors and nothing behind them. You have the opposite problem, and it's the easy one to fix.",
   },
 ];
 
 const shape = [
   {
-    label: 'Weeks 1—4',
-    name: 'Two hours a week',
+    label: "Weeks 1-4",
+    name: "Two hours a week",
     description:
       "One call, the whole group, every week. You bring what you're sitting on and what you didn't post. Nobody watches a video.",
   },
   {
-    label: 'After that',
-    name: 'Monthly, same group',
+    label: "After that",
+    name: "Monthly, same group",
     description:
       "Four weeks proves nothing. The person who changed my career showed up years in, so we keep meeting for a while. I drop in. You keep going with each other.",
   },
   {
-    label: 'Size',
-    name: 'Eight people',
+    label: "Size",
+    name: "Eight people",
     description:
-      "Small enough that you can't quietly stop and hope nobody noticed. That's not a limitation. That's the entire mechanism.",
+      "Small enough that you can't quietly stop and hope nobody noticed. Seven people expecting you next week is the entire mechanism.",
   },
 ];
 
@@ -177,12 +177,12 @@ const notFor = [
   {
     label: "You need a job in six weeks",
     description:
-      "Then this is the wrong thing and I won't pretend otherwise. Reputation compounds over years, and you don't have years. Do the applications, take the job, and come back when you're employed and still quietly scared. That's when this works.",
+      "Then this is the wrong thing and I won't pretend otherwise. Reputation compounds over years, and you don't have years. Do the applications, take the job, and come back when you're employed. That's when this works.",
   },
   {
     label: "You think the game is rigged",
     description:
-      "That individuals don't stand a chance, that it's all luck and money and reach. I can't argue you out of that and I'm not going to try. I believed it for a decade about a project sitting on my own hard drive.",
+      "You think that individuals don't stand a chance, that it's all luck and money and reach. I can't argue you out of that and I'm not going to try. I believed it for a decade about a project sitting on my own hard drive.",
   },
 ];
 
@@ -198,14 +198,20 @@ const problems = [
       "You posted it once. Three likes, two from friends. Saying it a second time would look like you needed something, so you never did.",
   },
   {
-    label: "While employed, it feels ungrateful",
+    label: "When things are fine, it feels like showing off",
     description:
-      "You're fine right now, so bringing up the nine months you spent job hunting sounds paranoid. You only post when you're unemployed. You've noticed.",
+      "So you only speak up when you need something. The job's gone, the launch is flopping, the runway's short. That's the one time it reads as desperate, and works worst.",
   },
 ];
 
 export default function Unrejectable() {
   const [phase, setPhase] = useState<Phase>("down-lit");
+  const [showLoop, setShowLoop] = useState(false);
+  const firstNameRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (showLoop) firstNameRef.current?.focus();
+  }, [showLoop]);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -349,6 +355,20 @@ export default function Unrejectable() {
               </div>
 
               {/* Headline */}
+              {/* Credibility kicker */}
+              <p
+                style={{
+                  fontSize: "12px",
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase" as const,
+                  color: "#A1A1AA",
+                  fontWeight: "600",
+                  marginBottom: "24px",
+                }}
+              >
+                By Fran Méndez, creator of AsyncAPI
+              </p>
+
               <h1
                 style={{
                   fontSize: "clamp(64px, 12vw, 140px)",
@@ -363,57 +383,59 @@ export default function Unrejectable() {
                 rejectable.
               </h1>
 
-              {/* Tagline */}
-              <p
-                style={{
-                  fontSize: "clamp(20px, 3vw, 30px)",
-                  color: "#FEED4E",
-                  fontWeight: "500",
-                  marginBottom: "32px",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                Be the one who chooses.
-              </p>
-
-              {/* Sub-headline */}
+              {/* Deck: what / who / outcome */}
               <p
                 style={{
                   fontSize: "20px",
                   color: "#FAFAFA",
-                  maxWidth: "520px",
+                  maxWidth: "540px",
                   lineHeight: "1.6",
-                  marginBottom: "20px",
+                  marginBottom: "28px",
                 }}
               >
-                Your work is better than your options.
-              </p>
-              <p
-                style={{
-                  fontSize: "18px",
-                  color: "#A1A1AA",
-                  maxWidth: "520px",
-                  lineHeight: "1.7",
-                  marginBottom: "56px",
-                }}
-              >
-                That gap has a cause and it isn&apos;t the work. Four weeks,
-                eight of you, and me, on the only part that&apos;s actually hard:
-                telling anyone what you&apos;ve built.
+                A four-week mentorship group for engineers who build great
+                things and stay invisible. Fix that, and the right people come
+                to you.
               </p>
 
+              {/* Spec chips */}
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "8px",
+                  marginBottom: "48px",
+                }}
+              >
+                {["4 weeks", "8 people", "live with me", "not a course"].map(
+                  (c) => (
+                    <span
+                      key={c}
+                      style={{
+                        fontSize: "13px",
+                        color: "#A1A1AA",
+                        border: "1px solid rgba(255,255,255,0.12)",
+                        borderRadius: "100px",
+                        padding: "5px 14px",
+                      }}
+                    >
+                      {c}
+                    </span>
+                  ),
+                )}
+              </div>
+
               {/* CTA */}
-              <button
-                onClick={scrollToForm}
+              <a
+                href="https://fmvilas.kit.com/products/unrejectable"
                 style={{
                   background: "#FEED4E",
                   color: "#09090B",
-                  border: "none",
                   borderRadius: "8px",
                   padding: "15px 36px",
                   fontSize: "15px",
                   fontWeight: "700",
-                  cursor: "pointer",
+                  textDecoration: "none",
                   letterSpacing: "-0.01em",
                   display: "inline-flex",
                   alignItems: "center",
@@ -429,9 +451,9 @@ export default function Unrejectable() {
                   e.currentTarget.style.opacity = "1";
                 }}
               >
-                I want in
+                Claim one of 8 spots
                 <span aria-hidden>→</span>
-              </button>
+              </a>
             </div>
           </div>
 
@@ -646,7 +668,10 @@ export default function Unrejectable() {
               }}
             >
               {shape.map((s, i) => (
-                <div key={i} style={{ background: "#09090B", padding: "40px 36px" }}>
+                <div
+                  key={i}
+                  style={{ background: "#09090B", padding: "40px 36px" }}
+                >
                   <div
                     style={{
                       fontSize: "11px",
@@ -671,45 +696,49 @@ export default function Unrejectable() {
                   >
                     {s.name}
                   </h3>
-                  <p style={{ color: "#A1A1AA", lineHeight: "1.7", fontSize: "15px" }}>
+                  <p
+                    style={{
+                      color: "#A1A1AA",
+                      lineHeight: "1.7",
+                      fontSize: "15px",
+                    }}
+                  >
                     {s.description}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div
-              style={{
-                color: "#A1A1AA",
-                fontSize: "17px",
-                lineHeight: "1.8",
-                maxWidth: "680px",
-                margin: "0 auto",
-                textAlign: "center",
-              }}
-            >
-              <p style={{ marginBottom: "24px" }}>
-                It isn&apos;t a course and it won&apos;t become one. Everything a
-                course could teach you is already written down, and it&apos;s
-                free:{" "}
-                <a
-                  href="/unrejectable/free/1/send-it"
-                  style={{
-                    color: "#FEED4E",
-                    textDecoration: "none",
-                    borderBottom: "1px solid rgba(254,237,78,0.3)",
-                  }}
-                >
-                  everything I know about being found
-                </a>
-                . You are not stuck because you don&apos;t know what a blog is.
-              </p>
-              <p style={{ margin: 0 }}>
-                You&apos;re stuck because doing it feels like begging, and that
-                doesn&apos;t get fixed by watching a video of me. It gets fixed
-                in a room where six other people are doing it too and nobody
-                dies.
-              </p>
+            <div style={{ textAlign: "center" }}>
+              <a
+                href="/unrejectable/free/1/send-it"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  color: "#FEED4E",
+                  background: "transparent",
+                  border: "1px solid rgba(254,237,78,0.4)",
+                  borderRadius: "8px",
+                  padding: "14px 28px",
+                  fontSize: "15px",
+                  fontWeight: "600",
+                  textDecoration: "none",
+                  letterSpacing: "-0.01em",
+                  transition: "background 0.15s, border-color 0.15s",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.background = "rgba(254,237,78,0.08)";
+                  e.currentTarget.style.borderColor = "rgba(254,237,78,0.7)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.borderColor = "rgba(254,237,78,0.4)";
+                }}
+              >
+                Get a taste of what we&apos;ll be working on
+                <span aria-hidden>→</span>
+              </a>
             </div>
           </div>
         </section>
@@ -892,12 +921,11 @@ export default function Unrejectable() {
                 That&apos;s the whole thing. Everything else falls out of it.
               </p>
               <p style={{ marginBottom: "24px" }}>
-                When you talk to a company, they already know what you can do,
-                so you aren&apos;t there to be tested. You&apos;re there to work
-                out whether their problem is interesting enough to be worth your
-                time. When a layoff round comes, and one will, you&apos;re not
-                starting from a blank PDF and nine months of savings. When you
-                want something, you ask people who already know your name.
+                The job you want comes asking, and you aren&apos;t there to be
+                tested. The thing you built gets used, because the right people
+                already heard about it. And when you need something, whether a
+                role, a customer, an intro or a co-founder, you ask people who
+                know your name instead of strangers who don&apos;t.
               </p>
               <p style={{ marginBottom: "24px" }}>
                 <span style={{ color: "#FAFAFA" }}>
@@ -908,8 +936,8 @@ export default function Unrejectable() {
               </p>
               <p style={{ margin: 0 }}>
                 <span style={{ color: "#FAFAFA" }}>
-                  There is no reason you can&apos;t say the same sentence in a
-                  few years.
+                  There is no reason you can&apos;t have your own version of
+                  that in a few years.
                 </span>{" "}
                 None of it was talent. I was worse at this than you are, and I
                 only started because a room of fifteen people let me.
@@ -1006,7 +1034,7 @@ export default function Unrejectable() {
                     }}
                   >
                     Fran created <em style={{ color: "#FAFAFA" }}>AsyncAPI</em>,
-                    the open standard for defining asynchronous APIs — now
+                    the open standard for defining asynchronous APIs, now
                     adopted by thousands of companies worldwide including
                     GitHub, Citibank, NASA, Adidas, and Lego, and hosted under
                     the Linux Foundation.
@@ -1247,7 +1275,7 @@ export default function Unrejectable() {
                   }}
                 >
                   Fran created <em style={{ color: "#FAFAFA" }}>AsyncAPI</em>,
-                  the open standard for defining asynchronous APIs — now adopted
+                  the open standard for defining asynchronous APIs, now adopted
                   by thousands of companies worldwide including GitHub, NASA,
                   Adidas, Lego, and Citibank, and hosted under the Linux
                   Foundation.
@@ -1263,8 +1291,9 @@ export default function Unrejectable() {
                   He wrote <em style={{ color: "#FAFAFA" }}>Shift</em> on a
                   conviction he earned the hard way: having the best technology
                   doesn't matter if you can't get people on board. Unrejectable
-                  applies that same lesson to your career. Raw skill won't open
-                  doors. Reputation does.
+                  applies that same lesson to you and the things you build. Good
+                  work does not get noticed on its own. Reputation is what gets
+                  it seen, and reputation can be built.
                 </p>
 
                 <a
@@ -1479,21 +1508,69 @@ export default function Unrejectable() {
                 marginBottom: "16px",
               }}
             >
-              Tell me you want in.
+              Claim your spot.
             </h2>
             <p
               style={{
                 color: "#A1A1AA",
-                marginBottom: "48px",
+                marginBottom: "40px",
                 lineHeight: "1.6",
                 fontSize: "15px",
               }}
             >
-              It runs the moment there are enough of you, and enough is about
-              eight people. So you&apos;re not a rounding error on this list.
-              You&apos;re roughly an eighth of whether it happens at all.
+              Eight seats. €500 for this founding group, and it becomes €1,000
+              after. It runs once the eight are filled, and you can take a full
+              refund any time before it starts.
             </p>
 
+            <a
+              href="https://fmvilas.kit.com/products/unrejectable"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "#FEED4E",
+                color: "#09090B",
+                borderRadius: "8px",
+                padding: "16px 36px",
+                fontSize: "16px",
+                fontWeight: "700",
+                textDecoration: "none",
+                letterSpacing: "-0.01em",
+                transition: "transform 0.15s, opacity 0.15s",
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-1px)";
+                e.currentTarget.style.opacity = "0.9";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.opacity = "1";
+              }}
+            >
+              Claim your spot · €500
+              <span aria-hidden>→</span>
+            </a>
+
+            {!showLoop ? (
+              <div style={{ marginTop: "28px" }}>
+                <button
+                  onClick={() => setShowLoop(true)}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    color: "#A1A1AA",
+                    fontSize: "14px",
+                    cursor: "pointer",
+                    fontFamily: "inherit",
+                    textDecoration: "underline",
+                    textUnderlineOffset: "3px",
+                  }}
+                >
+                  Not ready yet? Stay in the loop
+                </button>
+              </div>
+            ) : (
             <form
               action={`https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`}
               className="seva-form formkit-form"
@@ -1527,6 +1604,7 @@ export default function Unrejectable() {
                 }}
               >
                 <input
+                  ref={firstNameRef}
                   name="fields[first_name]"
                   aria-label="First Name"
                   placeholder="First name"
@@ -1607,10 +1685,11 @@ export default function Unrejectable() {
                     <div />
                     <div />
                   </div>
-                  <span>Count me in</span>
+                  <span>Keep me posted</span>
                 </button>
               </div>
             </form>
+            )}
           </div>
         </section>
 
