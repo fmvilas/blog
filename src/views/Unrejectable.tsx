@@ -58,6 +58,14 @@ body {
    when, elsewhere + open are where and who. */
 .protocol-grid { grid-template-columns: repeat(2, 1fr); }
 
+.notfor-grid { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) {
+  .notfor-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .notfor-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
   .protocol-grid { grid-template-columns: 1fr; }
 }
@@ -152,7 +160,7 @@ const shape = [
     label: "Weeks 1-4",
     name: "Two hours a week",
     description:
-      "One call, the whole group, every week. You bring what you're sitting on and what you didn't post. Nobody watches a video.",
+      "One call, the whole group, every week. You bring your actual work, the stuff you do and never talk about. Nobody watches a video.",
   },
   {
     label: "After that",
@@ -183,6 +191,11 @@ const notFor = [
     label: "You think the game is rigged",
     description:
       "You think that individuals don't stand a chance, that it's all luck and money and reach. I can't argue you out of that and I'm not going to try. I believed it for a decade about a project sitting on my own hard drive.",
+  },
+  {
+    label: "You have no room to think right now",
+    description:
+      "This is a mindset change before it's anything else, and that takes real headspace, especially early. If you're underwater right now, this is the wrong moment. Come back when you have the space. It'll keep.",
   },
 ];
 
@@ -393,9 +406,8 @@ export default function Unrejectable() {
                   marginBottom: "28px",
                 }}
               >
-                A four-week mentorship group for engineers who build great
-                things and stay invisible. Fix that, and the right people come
-                to you.
+                A four-week mentorship group for engineers who do great work and
+                stay invisible. Fix that, and the right people come to you.
               </p>
 
               {/* Spec chips */}
@@ -862,11 +874,11 @@ export default function Unrejectable() {
               }}
             >
               All of it on{" "}
-              <span style={{ color: "#FAFAFA" }}>your own work</span>. The thing
-              you built years ago and never mentioned to anyone, or the one
-              that&apos;s still just an idea in your head. Not exercises, not a
-              case study, not my projects. Yours, in public, starting in week
-              one.
+              <span style={{ color: "#FAFAFA" }}>your own work</span>. The side
+              thing you built and never mentioned, the hard problem you quietly
+              solve at your job, the stuff you&apos;re figuring out right now. You
+              don&apos;t need a secret project. Not exercises, not a case study,
+              not my projects. Yours, in public, starting in week one.
             </p>
           </div>
         </section>
@@ -1417,9 +1429,9 @@ export default function Unrejectable() {
             </h2>
 
             <div
+              className="notfor-grid"
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
                 gap: "1px",
                 background: "rgba(255,255,255,0.05)",
                 borderRadius: "16px",
