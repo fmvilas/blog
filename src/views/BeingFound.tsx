@@ -234,6 +234,7 @@ export default function BeingFound() {
           <div className="u-body">
             <p className="bf-punch">None of this is information you were missing. You know blogs exist.</p>
             <p>The hard part is that doing it feels like begging, and you&apos;d rather be invisible than undignified. I understand that completely. I chose invisible for ten years, and I have a graveyard of archived repos to show for it.</p>
+            <p>But you have the dignity backwards. Talking about your work isn&apos;t ego. Staying quiet isn&apos;t humility. It&apos;s just the truth, said out loud.</p>
             <p>The thing I&apos;d tell my younger self is that the people you&apos;re comparing yourself to are not better than you. Most of them have less behind them than you do. They just told someone.</p>
             <p>You&apos;ve already done the hard part. You built the thing. All that&apos;s left is the part you find embarrassing.</p>
             <p className="bf-punch">Say it early. Say it often.</p>

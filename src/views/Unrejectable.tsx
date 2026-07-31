@@ -616,16 +616,36 @@ export default function Unrejectable() {
                   paddingRight: "60px",
                 }}
               >
-                It doesn&apos;t. It never has. Not for anyone, in any field, at
-                any point in history. I believed it for ten years and I have a
-                graveyard of archived repos to prove it. The people you&apos;re
-                comparing yourself to are{" "}
+                The work does not speak for itself. It never has, for anyone, in
+                any field, at any point in history. I believed that for decades
+                and have a graveyard of archived repos to prove it. The people
+                you compare yourself to are{" "}
                 <em style={{ color: "#FAFAFA", fontStyle: "italic" }}>
                   not better than you
                 </em>
                 . Most of them have less behind them than you do. They just{" "}
                 <em style={{ color: "#FAFAFA", fontStyle: "italic" }}>
                   told someone
+                </em>
+                .
+              </p>
+              <p
+                className="quote-text"
+                style={{
+                  fontSize: "clamp(20px, 3vw, 32px)",
+                  lineHeight: "1.55",
+                  fontWeight: "400",
+                  letterSpacing: "-0.02em",
+                  color: "#A1A1AA",
+                  marginTop: "32px",
+                  paddingLeft: "60px",
+                  paddingRight: "60px",
+                }}
+              >
+                And telling someone isn&apos;t ego. Staying quiet isn&apos;t
+                humility. It&apos;s just{" "}
+                <em style={{ color: "#FAFAFA", fontStyle: "italic" }}>
+                  the truth, said out loud
                 </em>
                 .
               </p>
@@ -876,9 +896,9 @@ export default function Unrejectable() {
               All of it on{" "}
               <span style={{ color: "#FAFAFA" }}>your own work</span>. The side
               thing you built and never mentioned, the hard problem you quietly
-              solve at your job, the stuff you&apos;re figuring out right now. You
-              don&apos;t need a secret project. Not exercises, not a case study,
-              not my projects. Yours, in public, starting in week one.
+              solve at your job, the stuff you&apos;re figuring out right now.
+              You don&apos;t need a secret project. Not exercises, not a case
+              study, not my projects. Yours, in public, starting in week one.
             </p>
           </div>
         </section>
