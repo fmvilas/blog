@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Nav } from "@/components/Nav";
+import { CountdownPill, DeadlineBar } from "@/components/DeadlineBar";
+import { CLOSES_LONG, CLOSES_SHORT, STARTS_LONG } from "@/lib/deadline";
+
+const CHECKOUT_URL = "https://fmvilas.kit.com/products/unrejectable";
 
 type Phase = "down-lit" | "down-flickering" | "up-lighting" | "up-lit";
 
@@ -263,7 +267,12 @@ export default function Unrejectable() {
           overflowX: "hidden",
         }}
       >
-        <Nav accent="#FEED4E" />
+        {/* Bar and nav stick as one block; the nav's own sticky positioning
+            is inert inside this wrapper, so the two can't overlap. */}
+        <div style={{ position: "sticky", top: 0, zIndex: 60 }}>
+          <DeadlineBar href={CHECKOUT_URL} />
+          <Nav accent="#FEED4E" />
+        </div>
 
         {/* ── Hero ─────────────────────────────────────────────────── */}
         <section
@@ -419,27 +428,34 @@ export default function Unrejectable() {
                   marginBottom: "48px",
                 }}
               >
-                {["4 weeks", "8 people", "live with me", "not a course"].map(
-                  (c) => (
-                    <span
-                      key={c}
-                      style={{
-                        fontSize: "13px",
-                        color: "#A1A1AA",
-                        border: "1px solid rgba(255,255,255,0.12)",
-                        borderRadius: "100px",
-                        padding: "5px 14px",
-                      }}
-                    >
-                      {c}
-                    </span>
-                  ),
-                )}
+                {[
+                  { label: "4 weeks" },
+                  { label: "8 people" },
+                  { label: "live with me" },
+                  { label: "not a course" },
+                  { label: `closes ${CLOSES_SHORT}`, urgent: true },
+                ].map((c) => (
+                  <span
+                    key={c.label}
+                    style={{
+                      fontSize: "13px",
+                      color: c.urgent ? "#FEED4E" : "#A1A1AA",
+                      border: c.urgent
+                        ? "1px solid rgba(254,237,78,0.4)"
+                        : "1px solid rgba(255,255,255,0.12)",
+                      borderRadius: "100px",
+                      padding: "5px 14px",
+                      fontWeight: c.urgent ? "700" : "400",
+                    }}
+                  >
+                    {c.label}
+                  </span>
+                ))}
               </div>
 
               {/* CTA */}
               <a
-                href="https://fmvilas.kit.com/products/unrejectable"
+                href={CHECKOUT_URL}
                 style={{
                   background: "#FEED4E",
                   color: "#09090B",
@@ -466,6 +482,18 @@ export default function Unrejectable() {
                 Claim your spot · €500
                 <span aria-hidden>→</span>
               </a>
+
+              <p
+                style={{
+                  fontSize: "13px",
+                  color: "#A1A1AA",
+                  lineHeight: "1.6",
+                  margin: "16px 0 0 0",
+                }}
+              >
+                Enrollment closes {CLOSES_LONG}. We start {STARTS_LONG}. Full
+                refund any time before it does.
+              </p>
             </div>
           </div>
 
@@ -1524,12 +1552,12 @@ export default function Unrejectable() {
                 fontSize: "11px",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase" as const,
-                color: "#A1A1AA",
+                color: "#FEED4E",
                 marginBottom: "20px",
                 fontWeight: "700",
               }}
             >
-              The first cohort
+              The first cohort · closes {CLOSES_LONG}
             </p>
             <h2
               style={{
@@ -1542,6 +1570,11 @@ export default function Unrejectable() {
             >
               Claim your spot.
             </h2>
+
+            <div style={{ marginBottom: "20px" }}>
+              <CountdownPill />
+            </div>
+
             <p
               style={{
                 color: "#A1A1AA",
@@ -1550,13 +1583,14 @@ export default function Unrejectable() {
                 fontSize: "15px",
               }}
             >
-              Eight seats. €500 for this founding group, and it becomes €1,000
-              after. It runs once the eight are filled, and you can take a full
-              refund any time before it starts.
+              Eight seats, and enrollment closes {CLOSES_LONG}. €500 for this
+              founding group, €1,000 after. We start {STARTS_LONG} with whoever
+              is in when the doors shut, and you can take a full refund any time
+              before then.
             </p>
 
             <a
-              href="https://fmvilas.kit.com/products/unrejectable"
+              href={CHECKOUT_URL}
               style={{
                 display: "inline-flex",
                 alignItems: "center",

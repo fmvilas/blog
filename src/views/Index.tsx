@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Nav } from '@/components/Nav';
+import { CountdownPill } from '@/components/DeadlineBar';
+import { CLOSES_LONG, STARTS_LONG } from '@/lib/deadline';
 
 const KIT_FORM_ID = '8024741';
 const KIT_UID = '8e4cf78d34';
@@ -416,6 +418,16 @@ const Home = () => {
                   engineers, and me, on the only part that&apos;s actually hard: telling anyone
                   what you&apos;ve built.
                 </p>
+                <div style={{
+                  display: 'flex', alignItems: 'center', gap: '12px',
+                  flexWrap: 'wrap', marginBottom: '24px',
+                }}>
+                  <p style={{ fontSize: '15px', color: '#FEED4E', fontWeight: '600', margin: 0, lineHeight: '1.6' }}>
+                    Enrollment closes {CLOSES_LONG}.
+                    <span style={{ color: '#A1A1AA', fontWeight: '400' }}> We start {STARTS_LONG}.</span>
+                  </p>
+                  <CountdownPill />
+                </div>
                 <a
                   href="/unrejectable"
                   style={{
