@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Invoices — client fiscal data, never commit or deploy
+/invoices/
