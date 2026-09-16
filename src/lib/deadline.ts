@@ -10,6 +10,15 @@ export const CLOSES_LONG = 'September 15';
 export const CLOSES_SHORT = 'Sept 15';
 export const STARTS_LONG = 'October 19';
 
+/**
+ * After the founding window (€500) closed on 15 September, the remaining seats
+ * sell at PRICE. Keep this in step with the Kit product. Update SEATS_LEFT by
+ * hand as people join.
+ */
+export const PRICE = '€750';
+export const SEATS_LEFT = 2;
+export const SEATS_LEFT_LABEL = `${SEATS_LEFT} ${SEATS_LEFT === 1 ? 'seat' : 'seats'} left`;
+
 /** Whole days remaining: 7 a week out, 0 on the final day, negative once shut. */
 export const daysLeft = (now: Date = new Date()): number =>
   Math.floor((ENROLLMENT_CLOSES.getTime() - now.getTime()) / 86_400_000);

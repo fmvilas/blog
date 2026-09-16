@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CLOSES_LONG, countdown, isClosed } from '@/lib/deadline';
+import { CLOSES_LONG, PRICE, SEATS_LEFT_LABEL, STARTS_LONG, countdown, isClosed } from '@/lib/deadline';
 
 const ACCENT = '#FEED4E';
 const BG = '#09090B';
@@ -59,12 +59,11 @@ export const CountdownPill = () => {
 };
 
 /**
- * Sticky enrollment countdown for /unrejectable. Removes itself once the
- * deadline has passed, so a stale banner can't outlive the cohort.
+ * Sticky bar for /unrejectable. Before the founding deadline it counts down;
+ * once that has passed it shows the start date and the seats still open.
  */
 export const DeadlineBar = ({ href }: { href: string }) => {
   const { left, shut } = useCountdown();
-  if (shut) return null;
 
   return (
     <>
@@ -87,8 +86,16 @@ export const DeadlineBar = ({ href }: { href: string }) => {
             textAlign: 'center',
           }}
         >
-          <span>Enrollment closes {CLOSES_LONG}</span>
-          {left && (
+          {shut ? (
+            <>
+              <span>Unrejectable starts {STARTS_LONG}</span>
+              <span aria-hidden style={{ opacity: 0.4 }}>·</span>
+              <span>{SEATS_LEFT_LABEL} at {PRICE}</span>
+            </>
+          ) : (
+            <span>Enrollment closes {CLOSES_LONG}</span>
+          )}
+          {!shut && left && (
             <>
               <span aria-hidden style={{ opacity: 0.4 }}>·</span>
               <span>{left}</span>

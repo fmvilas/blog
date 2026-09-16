@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Nav } from "@/components/Nav";
 import { CountdownPill, DeadlineBar } from "@/components/DeadlineBar";
-import { CLOSES_LONG, CLOSES_SHORT, STARTS_LONG } from "@/lib/deadline";
+import { PRICE, SEATS_LEFT_LABEL, STARTS_LONG } from "@/lib/deadline";
 
 const CHECKOUT_URL = "https://fmvilas.kit.com/products/unrejectable";
 
@@ -433,7 +433,7 @@ export default function Unrejectable() {
                   { label: "8 people" },
                   { label: "live with me" },
                   { label: "not a course" },
-                  { label: `closes ${CLOSES_SHORT}`, urgent: true },
+                  { label: SEATS_LEFT_LABEL, urgent: true },
                 ].map((c) => (
                   <span
                     key={c.label}
@@ -479,7 +479,7 @@ export default function Unrejectable() {
                   e.currentTarget.style.opacity = "1";
                 }}
               >
-                Claim your spot · €500
+                Claim your spot · {PRICE}
                 <span aria-hidden>→</span>
               </a>
 
@@ -491,8 +491,9 @@ export default function Unrejectable() {
                   margin: "16px 0 0 0",
                 }}
               >
-                Enrollment closes {CLOSES_LONG}. We start {STARTS_LONG}. Full
-                refund any time before it does.
+                Unrejectable starts {STARTS_LONG}. The founding price is over:{" "}
+                {SEATS_LEFT_LABEL} at {PRICE}. Full refund any time before we
+                start.
               </p>
             </div>
           </div>
@@ -1557,7 +1558,7 @@ export default function Unrejectable() {
                 fontWeight: "700",
               }}
             >
-              The first cohort · closes {CLOSES_LONG}
+              The first cohort · starts {STARTS_LONG}
             </p>
             <h2
               style={{
@@ -1583,10 +1584,9 @@ export default function Unrejectable() {
                 fontSize: "15px",
               }}
             >
-              Eight seats, and enrollment closes {CLOSES_LONG}. €500 for this
-              founding group, €1,000 after. We start {STARTS_LONG} with whoever
-              is in when the doors shut, and you can take a full refund any time
-              before then.
+              Unrejectable starts {STARTS_LONG}. The founding price is over:{" "}
+              {SEATS_LEFT_LABEL} at {PRICE}. You can take a full refund any time
+              before we start.
             </p>
 
             <a
@@ -1614,7 +1614,7 @@ export default function Unrejectable() {
                 e.currentTarget.style.opacity = "1";
               }}
             >
-              Claim your spot · €500
+              Claim your spot · {PRICE}
               <span aria-hidden>→</span>
             </a>
 
