@@ -59,7 +59,7 @@ export const CountdownPill = () => {
 };
 
 /**
- * Sticky bar for /unrejectable. Before the founding deadline it counts down;
+ * Sticky bar for /unrejectable. Before enrollment closes it counts down;
  * once that has passed it shows the start date and the seats still open.
  */
 export const DeadlineBar = ({ href }: { href: string }) => {

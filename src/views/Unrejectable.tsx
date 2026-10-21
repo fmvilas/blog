@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Nav } from "@/components/Nav";
 import { CountdownPill, DeadlineBar } from "@/components/DeadlineBar";
-import { PRICE, SEATS_LEFT_LABEL, STARTS_LONG } from "@/lib/deadline";
+import { COHORT, PRICE, SEATS_LEFT_LABEL, STARTS_LONG } from "@/lib/deadline";
 
 const CHECKOUT_URL = "https://fmvilas.kit.com/products/unrejectable";
 
@@ -491,9 +491,8 @@ export default function Unrejectable() {
                   margin: "16px 0 0 0",
                 }}
               >
-                Unrejectable starts {STARTS_LONG}. The founding price is over:{" "}
-                {SEATS_LEFT_LABEL} at {PRICE}. Full refund any time before we
-                start.
+                Cohort {COHORT} starts {STARTS_LONG}. {SEATS_LEFT_LABEL} at{" "}
+                {PRICE}. Full refund any time before we start.
               </p>
             </div>
           </div>
@@ -1558,7 +1557,7 @@ export default function Unrejectable() {
                 fontWeight: "700",
               }}
             >
-              The first cohort · starts {STARTS_LONG}
+              Cohort {COHORT} · starts {STARTS_LONG}
             </p>
             <h2
               style={{
@@ -1584,9 +1583,8 @@ export default function Unrejectable() {
                 fontSize: "15px",
               }}
             >
-              Unrejectable starts {STARTS_LONG}. The founding price is over:{" "}
-              {SEATS_LEFT_LABEL} at {PRICE}. You can take a full refund any time
-              before we start.
+              Cohort {COHORT} starts {STARTS_LONG}. {SEATS_LEFT_LABEL} at{" "}
+              {PRICE}. You can take a full refund any time before we start.
             </p>
 
             <a
