@@ -3,7 +3,6 @@ import { Subscribe } from '@/components/Subscribe';
 import {
   CITIES,
   DAY_LONG,
-  ICS_PATH,
   KIT_FORM_ID,
   KIT_TAG_ID,
   KIT_UID,
@@ -162,15 +161,7 @@ body { background-color: ${BG}; }
   font-size: 34px; letter-spacing: -0.035em; line-height: 1;
   color: ${SAGE}; margin: 4px 0 0; outline: none;
 }
-.a10-success-body { font-size: 17px; line-height: 1.6; margin: 14px 0 24px; }
-.a10-cal {
-  display: inline-flex; align-items: center; gap: 10px;
-  border: 1px solid rgba(140,196,126,0.45); border-radius: 8px;
-  color: ${SAGE}; padding: 12px 18px;
-  font-size: 15px; font-weight: 700; text-decoration: none; letter-spacing: -0.01em;
-  transition: background 0.15s;
-}
-.a10-cal:hover { background: rgba(140,196,126,0.08); }
+.a10-success-body { font-size: 17px; line-height: 1.6; margin: 14px 0 4px; }
 
 /* Context + host */
 .a10-about p { margin: 0; }
@@ -274,13 +265,6 @@ const Success = () => {
     <div>
       <p ref={title} tabIndex={-1} className="a10-success-title">You&apos;re in.</p>
       <p className="a10-success-body">The YouTube link will reach your inbox before the stream.</p>
-      <a href={ICS_PATH} className="a10-cal">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <rect x="3" y="4.5" width="18" height="16" rx="2" />
-          <path d="M3 9.5h18M8 2.5v4M16 2.5v4" />
-        </svg>
-        Add to calendar
-      </a>
     </div>
   );
 };
