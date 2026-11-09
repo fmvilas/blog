@@ -16,8 +16,9 @@ import { useEffect, useState } from 'react';
  */
 export const START = new Date('2026-11-18T17:30:00Z');
 
-// Fran to confirm. Only the calendar entry uses it.
+// Fran to confirm. Only the calendar entries use it.
 export const DURATION_MINUTES = 60;
+export const END = new Date(START.getTime() + DURATION_MINUTES * 60_000);
 
 export const TITLE = '10 years of AsyncAPI — Ask Me Anything';
 export const SUBTITLE = 'From side project to industry standard.';
@@ -121,9 +122,57 @@ const icsFold = (line: string) => {
   return out.join('\r\n');
 };
 
-/** The calendar file behind "Add to calendar". No YouTube link, on purpose. */
+// What every calendar entry says. No YouTube link, on purpose.
+const CALENDAR_DETAILS = 'The YouTube link arrives by email.';
+
+/**
+ * "Add to calendar" links, in the order the success state shows them: the
+ * web calendars most people use first, the .ics download last (Apple Calendar,
+ * desktop Outlook and everything else).
+ *
+ * Plain encodeURIComponent rather than URLSearchParams, so spaces go out as
+ * %20: URLSearchParams uses "+", which not every calendar decodes as a space.
+ */
+const query = (params: Record<string, string>) =>
+  Object.entries(params)
+    .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+    .join('&');
+
+// "2026-11-18T17:30:00Z", the form Outlook's compose links take.
+const isoUtc = (d: Date) => d.toISOString().replace(/\.\d{3}Z$/, 'Z');
+
+const outlookCompose = (host: string) =>
+  `${host}/calendar/0/action/compose?` +
+  query({
+    path: '/calendar/action/compose',
+    rru: 'addevent',
+    subject: TITLE,
+    startdt: isoUtc(START),
+    enddt: isoUtc(END),
+    allday: 'false',
+    body: CALENDAR_DETAILS,
+  });
+
+export const CALENDAR_LINKS = [
+  {
+    label: 'Google Calendar',
+    href:
+      'https://calendar.google.com/calendar/render?' +
+      query({
+        action: 'TEMPLATE',
+        text: TITLE,
+        dates: `${icsStamp(START)}/${icsStamp(END)}`,
+        details: CALENDAR_DETAILS,
+      }),
+    kind: 'web',
+  },
+  { label: 'Outlook.com', href: outlookCompose('https://outlook.live.com'), kind: 'web' },
+  { label: 'Outlook for work or school', href: outlookCompose('https://outlook.office.com'), kind: 'web' },
+  { label: 'Apple Calendar & others (.ics)', href: ICS_PATH, kind: 'download' },
+] as const;
+
+/** The calendar file behind the last option. No YouTube link, on purpose. */
 export const buildIcs = (now: Date = new Date()): string => {
-  const end = new Date(START.getTime() + DURATION_MINUTES * 60_000);
   return [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
@@ -134,9 +183,9 @@ export const buildIcs = (now: Date = new Date()): string => {
     'UID:asyncapi10-ama-20261118@fmvilas.me',
     `DTSTAMP:${icsStamp(now)}`,
     `DTSTART:${icsStamp(START)}`,
-    `DTEND:${icsStamp(end)}`,
+    `DTEND:${icsStamp(END)}`,
     `SUMMARY:${icsText(TITLE)}`,
-    `DESCRIPTION:${icsText('The YouTube link arrives by email.')}`,
+    `DESCRIPTION:${icsText(CALENDAR_DETAILS)}`,
     'END:VEVENT',
     'END:VCALENDAR',
   ]

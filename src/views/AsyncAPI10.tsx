@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { Subscribe } from '@/components/Subscribe';
 import {
+  CALENDAR_LINKS,
   CITIES,
   DAY_LONG,
-  ICS_PATH,
   KIT_FORM_ID,
   KIT_TAG_ID,
   KIT_UID,
@@ -163,14 +163,35 @@ body { background-color: ${BG}; }
   color: ${SAGE}; margin: 4px 0 0; outline: none;
 }
 .a10-success-body { font-size: 17px; line-height: 1.6; margin: 14px 0 24px; }
-.a10-cal {
-  display: inline-flex; align-items: center; gap: 10px;
-  border: 1px solid rgba(140,196,126,0.45); border-radius: 8px;
-  color: ${SAGE}; padding: 12px 18px;
-  font-size: 15px; font-weight: 700; text-decoration: none; letter-spacing: -0.01em;
-  transition: background 0.15s;
+.a10-cal-label {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 700; color: ${MUTED}; margin: 0 0 10px;
 }
-.a10-cal:hover { background: rgba(140,196,126,0.08); }
+.a10-cal-label svg { color: ${SAGE}; }
+.a10-cal-list {
+  list-style: none; margin: 0; padding: 0;
+  border: 1px solid ${BORDER}; border-radius: 10px; overflow: hidden;
+}
+.a10-cal-list li + li { border-top: 1px solid ${BORDER}; }
+.a10-cal-option {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 13px 16px;
+  color: ${TEXT}; font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.a10-cal-option:hover { background: rgba(140,196,126,0.08); color: ${SAGE}; }
+.a10-cal-option:focus-visible {
+  outline: none; background: rgba(140,196,126,0.08); color: ${SAGE};
+  box-shadow: inset 0 0 0 2px ${SAGE};
+}
+.a10-cal-arrow { color: ${SAGE}; flex-shrink: 0; }
+.a10-cal-download { color: ${MUTED}; font-size: 14px; font-weight: 500; }
+.a10-sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
 
 /* Context + host */
 .a10-about p { margin: 0; }
@@ -274,13 +295,37 @@ const Success = () => {
     <div>
       <p ref={title} tabIndex={-1} className="a10-success-title">You&apos;re in.</p>
       <p className="a10-success-body">The YouTube link will reach your inbox before the stream.</p>
-      <a href={ICS_PATH} className="a10-cal">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <p className="a10-cal-label" id="a10-cal-label">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <rect x="3" y="4.5" width="18" height="16" rx="2" />
           <path d="M3 9.5h18M8 2.5v4M16 2.5v4" />
         </svg>
         Add to calendar
-      </a>
+      </p>
+      {/* Web calendars first, in a new tab so this message stays put. The
+          .ics download is the fallback, last. */}
+      <ul className="a10-cal-list" aria-labelledby="a10-cal-label">
+        {CALENDAR_LINKS.map(({ label, href, kind }) =>
+          kind === 'web' ? (
+            <li key={label}>
+              <a href={href} target="_blank" rel="noopener noreferrer" className="a10-cal-option">
+                <span>
+                  {label}
+                  <span className="a10-sr"> (opens in a new tab)</span>
+                </span>
+                <span className="a10-cal-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ) : (
+            <li key={label}>
+              <a href={href} className="a10-cal-option a10-cal-download">
+                <span>{label}</span>
+                <span className="a10-cal-arrow" aria-hidden="true">↓</span>
+              </a>
+            </li>
+          ),
+        )}
+      </ul>
     </div>
   );
 };
