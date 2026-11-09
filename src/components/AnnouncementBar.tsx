@@ -1,16 +1,17 @@
 import { Fragment } from 'react';
-import { DAY_SHORT, HOST_TIME, PATH } from '@/lib/asyncapi10';
+import { DAY_SHORT, PATH, useYourTime } from '@/lib/asyncapi10';
 
 /**
  * Slim bar above the homepage nav. Right now it sends people to the AsyncAPI
- * 10 AMA RSVP page.
+ * 10 AMA RSVP page, with the stream's day and time in the visitor's own zone.
  *
  * After the stream:
- *  - to swap it for the recording, change HREF, ITEMS and CTA below;
+ *  - to swap it for the recording, change HREF, ITEMS and CTA below and drop
+ *    `when` in the component;
  *  - to remove it, delete <AnnouncementBar /> from src/views/Index.tsx.
  */
 const HREF = PATH;
-const ITEMS = ['Live AMA', '10 years of AsyncAPI', `${DAY_SHORT}, ${HOST_TIME}`];
+const ITEMS = ['Live stream AMA', '10 years of AsyncAPI'];
 const CTA = 'Save your seat';
 
 const SAGE = '#8CC47E';
@@ -51,30 +52,38 @@ const STYLES = `
 }
 `;
 
-export const AnnouncementBar = () => (
-  <>
-    <style dangerouslySetInnerHTML={{ __html: STYLES }} />
-    <a href={HREF} className="ann-bar">
-      <span className="ann-inner">
-        <span className="ann-dot" aria-hidden="true" />
-        {ITEMS.map((item, i) => (
-          <Fragment key={item}>
-            {i > 0 && (
-              <>
-                {' '}
-                <span className="ann-sep" aria-hidden="true">·</span>{' '}
-              </>
-            )}
-            <span className="ann-item">{item}</span>
-          </Fragment>
-        ))}{' '}
-        <span className="ann-cta">
-          <span aria-hidden="true">→ </span>
-          <span className="ann-cta-text">{CTA}</span>
+export const AnnouncementBar = () => {
+  // Just the day until mounted, then "Wed 18 Nov, 12:30 your time". No place
+  // name next to the time: that read like an in-person event.
+  const yours = useYourTime();
+  const when = yours ? `${yours.dayShort}, ${yours.time} ${yours.zone}` : DAY_SHORT;
+  const items = [...ITEMS, when];
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: STYLES }} />
+      <a href={HREF} className="ann-bar">
+        <span className="ann-inner">
+          <span className="ann-dot" aria-hidden="true" />
+          {items.map((item, i) => (
+            <Fragment key={i}>
+              {i > 0 && (
+                <>
+                  {' '}
+                  <span className="ann-sep" aria-hidden="true">·</span>{' '}
+                </>
+              )}
+              <span className="ann-item">{item}</span>
+            </Fragment>
+          ))}{' '}
+          <span className="ann-cta">
+            <span aria-hidden="true">→ </span>
+            <span className="ann-cta-text">{CTA}</span>
+          </span>
         </span>
-      </span>
-    </a>
-  </>
-);
+      </a>
+    </>
+  );
+};
 
 export default AnnouncementBar;

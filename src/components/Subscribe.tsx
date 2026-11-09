@@ -9,7 +9,6 @@ export const Subscribe = ({
   useKitScript = true,
   stacked = false,
   hiddenFields = {},
-  extraFields,
   note,
   renderSuccess
 }: {
@@ -36,8 +35,6 @@ export const Subscribe = ({
    * Kit, the same way Kit's own tag checkboxes do.
    */
   hiddenFields?: Record<string, string>,
-  /** More inputs, rendered after the name field and before the button. */
-  extraFields?: ReactNode,
   /** Always-visible line under the button, e.g. what the visitor agrees to. */
   note?: ReactNode,
   /** Replaces the plain success message. Only used when useKitScript is false. */
@@ -174,7 +171,6 @@ export const Subscribe = ({
                 type="text"
               />
             </div>
-            {extraFields}
             <button
               data-element="submit"
               disabled={!useKitScript && status === 'submitting'}

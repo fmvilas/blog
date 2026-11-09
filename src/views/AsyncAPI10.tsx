@@ -1,17 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Subscribe } from '@/components/Subscribe';
 import {
+  CITIES,
   DAY_LONG,
-  HOST_TIME,
   ICS_PATH,
   KIT_FORM_ID,
-  KIT_QUESTION_FIELD,
   KIT_TAG_ID,
   KIT_UID,
-  OTHER_CITIES,
   START,
   SUBTITLE,
-  yourTimeLabel,
+  useYourTime,
 } from '@/lib/asyncapi10';
 
 // The YouTube link only goes to subscribers by email. It must never appear on
@@ -112,14 +110,16 @@ body { background-color: ${BG}; }
   font-size: clamp(32px, 4vw, 42px); letter-spacing: -0.035em;
   color: ${SAGE}; line-height: 1.05; margin-top: 4px;
 }
+.a10-time.a10-pending { visibility: hidden; }
+.a10-time.a10-ready { animation: a10-in 0.35s ease both; }
+@keyframes a10-in { from { opacity: 0; } to { opacity: 1; } }
 .a10-cities {
   list-style: none; margin: 22px 0 0; padding: 18px 0 0;
   border-top: 1px solid ${BORDER};
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 10px 28px;
 }
 .a10-cities li { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; color: ${MUTED}; }
 .a10-cities time { color: ${TEXT}; font-weight: 600; font-variant-numeric: tabular-nums; }
-.a10-yours { margin: 16px 0 0; font-size: 14px; font-weight: 600; color: ${TEXT}; min-height: 1.5em; }
 
 /* Signup card, restyling the light Tailwind classes Subscribe ships with */
 .a10-form { padding: 26px; }
@@ -138,7 +138,6 @@ body { background-color: ${BG}; }
   border-color: rgba(140,196,126,0.55) !important;
   box-shadow: 0 0 0 3px rgba(140,196,126,0.12) !important;
 }
-.a10 textarea.formkit-input { display: block; resize: vertical; min-height: 92px; line-height: 1.5; }
 .a10 .formkit-fields { gap: 12px !important; }
 .a10 .formkit-submit {
   background: ${SAGE} !important;
@@ -223,36 +222,43 @@ body { background-color: ${BG}; }
   .a10-time { font-size: 30px; margin-top: 2px; }
   .a10-cities { gap: 6px 18px; margin-top: 14px; padding-top: 14px; }
   .a10-cities li { font-size: 13px; }
-  .a10-yours { margin-top: 12px; font-size: 13px; }
-  .a10 textarea.formkit-input { min-height: 76px; }
   .a10-about-copy { font-size: 16px; }
 }
 
-@media (max-width: 340px) {
-  .a10-cities { grid-template-columns: minmax(0, 1fr); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .a10-dot { animation: none; }
+  .a10-dot, .a10-time.a10-ready { animation: none; }
 }
 `;
 
 /**
- * Filled in after mount. The page is built ahead of time, so the server can't
- * know the visitor's zone; the line keeps its height meanwhile so nothing jumps.
+ * The big time is the visitor's own: a time next to a place name read like an
+ * in-person event. It's filled in after mount, since the page is built ahead
+ * of time and can't know the zone; until then it holds its space, invisible,
+ * so nothing jumps. The day follows the visitor too (Thursday east of UTC+6).
  */
-const YourTime = () => {
-  const [label, setLabel] = useState('');
+const When = () => {
+  const yours = useYourTime();
 
-  useEffect(() => {
-    try {
-      setLabel(yourTimeLabel());
-    } catch {
-      // A browser without Intl time zones just doesn't get the line.
-    }
-  }, []);
-
-  return <p className="a10-yours">{label || ' '}</p>;
+  return (
+    <div className="a10-card a10-when">
+      <p className="a10-day">
+        <time dateTime={START.toISOString()}>
+          {yours?.day ?? DAY_LONG}{' '}
+          <span className={`a10-time ${yours ? 'a10-ready' : 'a10-pending'}`}>
+            {yours ? `${yours.time} ${yours.zone}` : '00:00 your time'}
+          </span>
+        </time>
+      </p>
+      <ul className="a10-cities" aria-label="The same moment around the world">
+        {CITIES.map(({ city, time }) => (
+          <li key={city}>
+            <span>{city}</span>
+            <time>{time}</time>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 const Success = () => {
@@ -279,21 +285,6 @@ const Success = () => {
   );
 };
 
-const QuestionField = () => (
-  <div className="formkit-field">
-    <textarea
-      className="formkit-input w-full"
-      name={KIT_QUESTION_FIELD}
-      aria-label="Your question for the AMA (optional)"
-      placeholder="Your question for the AMA (optional)"
-      rows={2}
-      // Kit doesn't document a length limit for custom fields. 255 is the
-      // conservative guess: a question that fits, and no failed signups.
-      maxLength={255}
-    />
-  </div>
-);
-
 export default function AsyncAPI10() {
   return (
     <>
@@ -318,7 +309,7 @@ export default function AsyncAPI10() {
               <div className="a10-intro">
                 <p className="a10-eyebrow">
                   <span className="a10-dot" aria-hidden="true" />
-                  Live · with guests from all 10 years
+                  Live stream · with guests from all 10 years
                 </p>
                 <h1 className="a10-h1">
                   <span>10 years of AsyncAPI.</span>
@@ -328,23 +319,7 @@ export default function AsyncAPI10() {
               </div>
 
               <div className="a10-grid">
-                <div className="a10-card a10-when">
-                  <p className="a10-day">
-                    <time dateTime={START.toISOString()}>
-                      {DAY_LONG}{' '}
-                      <span className="a10-time">{HOST_TIME}</span>
-                    </time>
-                  </p>
-                  <ul className="a10-cities" aria-label="The same moment elsewhere">
-                    {OTHER_CITIES.map(({ city, time }) => (
-                      <li key={city}>
-                        <span>{city}</span>
-                        <time>{time}</time>
-                      </li>
-                    ))}
-                  </ul>
-                  <YourTime />
-                </div>
+                <When />
 
                 <div className="a10-card a10-form" id="rsvp">
                   <Subscribe
@@ -354,7 +329,6 @@ export default function AsyncAPI10() {
                     useKitScript={false}
                     stacked
                     hiddenFields={{ 'tags[]': KIT_TAG_ID }}
-                    extraFields={<QuestionField />}
                     note="You'll get the YouTube link by email and join my newsletter. Unsubscribe anytime."
                     renderSuccess={() => <Success />}
                   />
@@ -368,7 +342,7 @@ export default function AsyncAPI10() {
                     adopted, giving it to a foundation, and what I&apos;d do differently.
                   </p>
                   <p className="a10-about-copy">
-                    <strong>Can&apos;t make it live?</strong> Sign up anyway and you&apos;ll get
+                    <strong>Can&apos;t watch it live?</strong> Sign up anyway and you&apos;ll get
                     the recording.
                   </p>
                   <div className="a10-host">
