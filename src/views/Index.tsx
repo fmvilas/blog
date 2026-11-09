@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Nav } from '@/components/Nav';
+import { AnnouncementBar } from '@/components/AnnouncementBar';
 import { CountdownPill } from '@/components/DeadlineBar';
 import { COHORT, PRICE, SEATS_LEFT_LABEL, STARTS_LONG } from '@/lib/deadline';
 
@@ -169,6 +170,9 @@ const Home = () => {
         fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
         overflowX: 'hidden',
       }}>
+
+        {/* ── Announcement (see the component to swap or remove) ── */}
+        <AnnouncementBar />
 
         {/* ── Nav ─────────────────────────────────────────────── */}
         <Nav onNewsletterClick={scrollToNewsletter} />
