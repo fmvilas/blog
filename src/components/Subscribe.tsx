@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 
 export const Subscribe = ({
   alignment = "left",
@@ -6,7 +6,11 @@ export const Subscribe = ({
   formId,
   buttonText = "Subscribe",
   successMessage = "Success! Now check your email to confirm your subscription.",
-  useKitScript = true
+  useKitScript = true,
+  stacked = false,
+  hiddenFields = {},
+  note,
+  renderSuccess
 }: {
   alignment?: "left" | "center",
   uid: string,
@@ -23,7 +27,18 @@ export const Subscribe = ({
    * success state. Note the endpoint's response is what Kit's own script talks to,
    * not a documented API — so failures surface visibly rather than silently.
    */
-  useKitScript?: boolean
+  useKitScript?: boolean,
+  /** Keep the fields in one column at every width, for narrow containers. */
+  stacked?: boolean,
+  /**
+   * Sent with every signup. `{ 'tags[]': '<tag id>' }` tags the subscriber in
+   * Kit, the same way Kit's own tag checkboxes do.
+   */
+  hiddenFields?: Record<string, string>,
+  /** Always-visible line under the button, e.g. what the visitor agrees to. */
+  note?: ReactNode,
+  /** Replaces the plain success message. Only used when useKitScript is false. */
+  renderSuccess?: () => ReactNode
 }) => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
@@ -98,7 +113,7 @@ export const Subscribe = ({
         role="status"
         aria-live="polite"
       >
-        <p className="subscribe-success">{successMessage}</p>
+        {renderSuccess ? renderSuccess() : <p className="subscribe-success">{successMessage}</p>}
       </div>
     );
   }
@@ -129,10 +144,13 @@ export const Subscribe = ({
               <a href="mailto:fran@fmvilas.me">fran@fmvilas.me</a> and I&apos;ll send it over.
             </p>
           )}
+          {Object.entries(hiddenFields).map(([name, value]) => (
+            <input key={name} type="hidden" name={name} value={value} />
+          ))}
           <div
             data-element="fields"
-            data-stacked="false"
-            className="seva-fields formkit-fields flex flex-col gap-4 xl:flex-row"
+            data-stacked={stacked ? "true" : "false"}
+            className={`seva-fields formkit-fields flex flex-col gap-4 ${stacked ? "" : "xl:flex-row"}`}
           >
             <div className="formkit-field flex-1">
               <input
@@ -156,7 +174,7 @@ export const Subscribe = ({
             <button
               data-element="submit"
               disabled={!useKitScript && status === 'submitting'}
-              className="formkit-submit w-full bg-primary text-white hover:bg-primary/90 font-medium py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-colors xl:w-auto"
+              className={`formkit-submit w-full bg-primary text-white hover:bg-primary/90 font-medium py-3 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition-colors ${stacked ? "" : "xl:w-auto"}`}
             >
               <div className="formkit-spinner">
                 <div></div>
@@ -168,6 +186,7 @@ export const Subscribe = ({
               </span>
             </button>
           </div>
+          {note && <p className="subscribe-note">{note}</p>}
         </div>
       </form>
     </div>

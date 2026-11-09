@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AsyncAPI10 from '../views/AsyncAPI10';
+import { PATH, SUBTITLE, TITLE } from '../lib/asyncapi10';
+
+// TODO(Fran): pass ogImage="/static/images/<end-card>.png" once the 16:9 end
+// card is in public/static/images. Until then this falls back to the site default.
+---
+
+<BaseLayout
+  title={TITLE}
+  description={`${SUBTITLE} A live stream on Wednesday 18 November 2026 at 17:30 UTC.`}
+  keywords="AsyncAPI, AsyncAPI 10 years, Ask Me Anything, AMA, Fran Méndez, Linux Foundation, open source, industry standard"
+  canonicalPath={PATH}
+>
+  <!-- Montserrat 900 for the headline; the site-wide import stops at 800. -->
+  <link
+    slot="head"
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap"
+  />
+  <AsyncAPI10 client:load />
+</BaseLayout>
