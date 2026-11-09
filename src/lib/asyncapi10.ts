@@ -36,15 +36,16 @@ export const CITIES = [
 ] as const;
 
 /**
- * Kit, through the "Personal Website" form the homepage newsletter uses.
+ * Kit, through the dedicated "AsyncAPI 10th RSVP" form (email + first name),
+ * so these signups are their own source in Kit.
  *
  * KIT_TAG_ID is the `asyncapi10` tag, created for this page. It goes along as
  * a hidden `tags[]` field, which is what Kit's own tag checkboxes submit, so
- * Kit applies it on subscribe. Don't delete or rename it in Kit while this
- * page is up.
+ * Kit applies it on subscribe. Don't delete or rename the form or the tag in
+ * Kit while this page is up.
  */
-export const KIT_FORM_ID = '8024741';
-export const KIT_UID = '8e4cf78d34';
+export const KIT_FORM_ID = '10166164';
+export const KIT_UID = '084f996dcb';
 export const KIT_TAG_ID = '25626750';
 
 export type YourTime = {
