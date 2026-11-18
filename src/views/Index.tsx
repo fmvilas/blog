@@ -418,7 +418,7 @@ const Home = () => {
               <div style={{ flex: '1 1 320px', paddingTop: '4px' }}>
                 <p style={{ fontSize: '17px', color: '#A1A1AA', lineHeight: '1.75', marginBottom: '24px', marginTop: 0 }}>
                   I haven&apos;t applied for a job since 2017. Not because I&apos;m special, but
-                  because enough people had heard of me that I never had to. Four weeks, eight
+                  because enough people had heard of me that I never had to. Four weeks, six
                   engineers, and me, on the only part that&apos;s actually hard: telling anyone
                   what you&apos;ve built.
                 </p>

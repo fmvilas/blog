@@ -16,7 +16,7 @@ export const STARTS_LONG = 'January 11';
  * join.
  */
 export const PRICE = '€799';
-export const SEATS_LEFT = 8;
+export const SEATS_LEFT = 6;
 export const SEATS_LEFT_LABEL = `${SEATS_LEFT} ${SEATS_LEFT === 1 ? 'seat' : 'seats'} left`;
 
 /** Whole days remaining: 7 a week out, 0 on the final day, negative once shut. */

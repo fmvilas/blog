@@ -174,9 +174,9 @@ const shape = [
   },
   {
     label: "Size",
-    name: "Eight people",
+    name: "Six people",
     description:
-      "Small enough that you can't quietly stop and hope nobody noticed. Seven people expecting you next week is the entire mechanism.",
+      "Small enough that you can't quietly stop and hope nobody noticed. Five people expecting you next week is the entire mechanism.",
   },
 ];
 
@@ -430,7 +430,7 @@ export default function Unrejectable() {
               >
                 {[
                   { label: "4 weeks" },
-                  { label: "8 people" },
+                  { label: "6 people" },
                   { label: "live with me" },
                   { label: "not a course" },
                   { label: SEATS_LEFT_LABEL, urgent: true },
@@ -713,7 +713,7 @@ export default function Unrejectable() {
             >
               Four weeks.
               <br />
-              Eight of you. Me.
+              Six of you. Me.
             </h2>
 
             <div
