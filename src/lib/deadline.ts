@@ -1,15 +1,15 @@
 /**
- * Unrejectable cohort 02 starts on 30 November, so enrollment shuts at the end
- * of 29 November (Madrid time, CET by then). Every deadline string on the site
+ * Unrejectable cohort 02 starts on 11 January 2027, so enrollment shuts at the
+ * end of 10 January (Madrid time, CET). Every deadline string on the site
  * derives from what's here, so the sticky bar, the hero chips and the closing
  * CTA can't drift apart.
  */
 export const COHORT = '02';
-export const ENROLLMENT_CLOSES = new Date('2026-11-29T23:59:59+01:00');
+export const ENROLLMENT_CLOSES = new Date('2027-01-10T23:59:59+01:00');
 
-export const CLOSES_LONG = 'November 29';
-export const CLOSES_SHORT = 'Nov 29';
-export const STARTS_LONG = 'November 30';
+export const CLOSES_LONG = 'January 10';
+export const CLOSES_SHORT = 'Jan 10';
+export const STARTS_LONG = 'January 11';
 
 /**
  * Keep PRICE in step with the Kit product. Update SEATS_LEFT by hand as people
